@@ -21,7 +21,7 @@ Details on how to setup the project.
 3. Clone this repository to your desired destination `git clone https://github.com/gajeraYash/NFOP-app.git`.
 4. Check out your workspace branch `git checkout firstname-ws`.
 5. Make a virutal environment `virtualenv venv`.
-6. Activate the new virtual environment `source venv/bin/activate`.
+6. Activate the new virtual environment `source venv/bin/activate` or Windows `source venv/Scripts/activate`.
 7. Install all dependencies `pip install -r requirements.txt`.
 
 ### Development Setup
