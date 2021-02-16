@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block vendor %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css" media="screen">
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+{% block content %}
+<section id="home">
+  <h1>Hello World!</h1>
+  <h2>Project Details</h2>
+</section>
+{% endblock %}

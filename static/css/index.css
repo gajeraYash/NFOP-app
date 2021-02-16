@@ -1,0 +1,23 @@
+/* templates/app/index.html */
+
+#home {
+    width: 100%;
+    min-height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties */
+    min-height: calc(var(--vh, 1vh) * 100);
+    background-color: var(--main-background);
+    background-size: cover;
+}
+
+#home h1 {
+    margin: 0;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 50px;
+    color: var(--main-text);
+}
+
+#home h2 {
+    color: var(--main-subtext);
+}
+
