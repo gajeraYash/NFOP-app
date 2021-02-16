@@ -1,5 +1,5 @@
 <h1 align="center">
-  Newark Faternal Order of Police
+  Newark Fraternal Order of Police
 </h1>
 <p align='center'>
   Web Application
