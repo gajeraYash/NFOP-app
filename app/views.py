@@ -4,3 +4,6 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request,"app/index.html")
+
+def test(request):
+    return render(request,"app/index.html") #Replace Under The Quotes for Custom Test HTML Page
