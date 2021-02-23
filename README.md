@@ -4,7 +4,7 @@
 <p align='center'>
   Web Application
 </p>
-<h2 aligh="center">
+<h2 align="center">
   Team
 </h2>
 <div align='center'>
