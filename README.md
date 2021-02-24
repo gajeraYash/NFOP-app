@@ -4,6 +4,34 @@
 <p align='center'>
   Web Application
 </p>
+<h2 align="center">
+  Team
+</h2>
+<div align='center'>
+  <a href="https://github.com/warita65">
+    <img style='padding:0 5px' src='https://img.shields.io/badge/Front-Wara-green'> 
+  </a>
+  <a href="https://github.com/mp1308">
+    <img style='padding:0 5px' src='https://img.shields.io/badge/Front-Marisol-green'> 
+  </a>
+  <a href="https://github.com/cesarin66">
+    <img style='padding:0 5px' src='https://img.shields.io/badge/Front-Cesar-green'> 
+  </a>
+  <a href="https://github.com/TansiU">
+    <img style='padding:0 5px' src='https://img.shields.io/badge/Front-Tansi-green'> 
+  </a>
+</div>
+<div align='center'>
+  <a href="https://github.com/gajeraYash">
+    <img style='padding:0 5px' src='https://img.shields.io/badge/Back-Yash-blue'> 
+  </a>
+  <a href="https://github.com/Cherve3">
+    <img style='padding:0 5px' src='https://img.shields.io/badge/Back-Michael-blue'> 
+  </a>
+  <a href="https://github.com/Danielc1963">
+    <img style='padding:0 5px' src='https://img.shields.io/badge/Back-Daniel-blue'> 
+  </a>
+</div>
 
 ## Info
 This project is part of the CS-491 course for CS major at Rutgers University - Newark. 
