@@ -7,3 +7,4 @@ def index(request):
 
 def test(request):
     return render(request,"app/index.html") #Replace Under The Quotes for Custom Test HTML Page
+
