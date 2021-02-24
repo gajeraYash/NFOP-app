@@ -9,23 +9,23 @@ def test(request):
     return render(request,"app/index.html") #Replace Under The Quotes for Custom Test HTML Page
 
 def about(request):
-    return render(request,"app/about.html")
+    return render(request,"app/index.html")
 
 def contact(request):
-    return render(request, "app/contact.html")
+    return render(request, "app/index.html")
  
 def register(request):
-    return render(request, "app/register.html")
+    return render(request, "app/index.html")
 
 def login(request):
-    return render(request, "app/login.html")
+    return render(request, "app/index.html")
 
 def logout(request):
-    return render(request, "app/logout.html")
+    return render(request, "app/index.html")
 
 def social_media(request):
-    return render(request, "app/social_media.html")
+    return render(request, "app/index.html")
 
 def donate(request):
-    return render(request, "app/donate.html")
+    return render(request, "app/index.html")
 
