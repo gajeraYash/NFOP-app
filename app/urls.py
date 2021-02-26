@@ -6,8 +6,8 @@ app_name = 'app'  # here for namespacing of urls.
 
 urlpatterns = [
     path('', views.index, name="home"),
-    path('test/', views.test, name="test"),
-
+    path('test/', views.test, name="test")
+    
     #About Page
     path('about', views.about, name="about"),
     

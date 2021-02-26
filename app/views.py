@@ -28,4 +28,3 @@ def social_media(request):
 
 def donate(request):
     return render(request, "app/index.html")
-
