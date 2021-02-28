@@ -57,3 +57,4 @@ Run `python manage.py runserver` to open up a dev server and navigate to `http:/
 
 ## Documentation
 To get more help on the Django go check out the [Django Documentation](https://docs.djangoproject.com/en/3.1/) or [DevDocs Django](https://devdocs.io/django~3.0/).
+Bootstrap 5.0 related information. [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/).
