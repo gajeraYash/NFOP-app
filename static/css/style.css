@@ -1,8 +1,27 @@
 /*Parent CSS STYLE*/
 :root {
-    --main-primary: #284b63;
-    --main-text: #ffffff;
-    --main-subtext: #f07167;
-    --main-other-color: #3c6e71;
-    --main-background: #353535;
-  }
+  --main-primary: #284b63;
+  --main-text: #ffffff;
+  --main-subtext: #f07167;
+  --main-other-color: #3c6e71;
+  --main-background: #353535;
+}
+
+html {
+  background-color: var(--main-background);
+  height: 100%;
+}
+
+html:before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-background);
+  z-index: -1;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
