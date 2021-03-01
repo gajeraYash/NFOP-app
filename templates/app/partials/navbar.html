@@ -1,7 +1,8 @@
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/app/partials/navbar.css' %}" type="text/css" media="screen">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">
-        <div class="logo-image">
+        <div class="nfop-logo">
               <img src="static/assets/MiscImages/logo.png" class="img-fluid">
         </div>
   </a>
@@ -26,7 +27,7 @@
                         <b>Contact us</b>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#"><b>Contact us for</b>m</a></li>
+                        <li><a class="dropdown-item" href="#"><b>Contact us form</b></a></li>
                         <li><a class="dropdown-item" href="#"><b>Social Media</b></a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -41,10 +42,10 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><b>Login</b></a>
+                    <a class="nav-link" href="{% url 'app:signup' %}"><b>Signup</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><b>Register</b></a>
+                    <a class="nav-link" href="#"><b>Login</b></a>
                 </li>
                 {% endif %}
             </ul>
