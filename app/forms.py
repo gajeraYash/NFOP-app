@@ -7,11 +7,17 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from app.models import UserProfile
 
+class UsernameLowField(forms.CharField):
+    def to_python(self, value):
+        return value.lower()
+class EmailLowField(forms.EmailField):
+    def to_python(self, value):
+        return value.lower()
 class SignupForm(UserCreationForm):
     first_name = forms.CharField(max_length=35, required=True)
     last_name = forms.CharField(max_length=35, required=True)
-    email = forms.EmailField(max_length=254, required=True, help_text="We will never share your email with anyone else.")
-    username = forms.CharField(max_length=15, min_length=3, required=True, help_text="Username must be between 3 - 15 characters and can contain '_'. ",validators=[
+    email = EmailLowField(max_length=254, required=True, help_text="We will never share your email with anyone else.")
+    username = UsernameLowField(max_length=15, min_length=3, required=True, help_text="Username must be between 3 - 15 characters and can contain '_'. ",validators=[
         RegexValidator(
             regex='^(?=.{3,15}$)(?!.*[_]{2})[a-zA-Z0-9_]+$',
             message='Username is invalid!',
@@ -23,12 +29,12 @@ class SignupForm(UserCreationForm):
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
 
     def clean(self):
-        email = self.cleaned_data.get('email').lower()
-        username = self.cleaned_data.get('username').lower()
+        email = self.cleaned_data.get('email')
+        username = self.cleaned_data.get('username')
 
-        if User.objects.filter(username=username).exists():
+        if User.objects.filter(username=username.lower()).exists():
             raise ValidationError("Username already in use.")
-        if User.objects.filter(email=email).exists():
+        if User.objects.filter(email=email.lower()).exists():
             raise ValidationError("Email already in use.")
         return self.cleaned_data
 
