@@ -21,3 +21,53 @@
     color: var(--main-subtext);
 }
 
+.logo { 
+    position: absolute;
+     top: 15%;
+     left: 3%;
+     color:white;
+     display: inline-block;
+     padding: 0;
+     width:200px;
+    height:200px;
+}
+
+* {box-sizing: border-box;}
+.mySlides {
+    display:none;
+}
+img {vertical-align: middle;}
+/* slideshow container*/
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  .active {
+    background-color: #717171;
+  }
+  @-webkit-keyframes fade {
+    0%,100% {opacity: 0;}
+    30%, 80% {opacity: 1;}
+   }
+  @keyframes fade {
+    0%,100% {opacity: 0;}
+    30%, 80% {opacity: 1;}
+    }
+  
