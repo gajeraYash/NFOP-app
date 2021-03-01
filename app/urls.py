@@ -5,7 +5,7 @@ from . import views
 app_name = 'app'  # here for namespacing of urls.
 
 urlpatterns = [
-    path('', views.index, name="home"),
+    path('', views.index, name="index"),
     path('test/', views.test, name="test"),
     
     #About Page
@@ -15,7 +15,7 @@ urlpatterns = [
     path('contact', views.contact, name="contact"),
 
     #Register Page
-    path('register', views.register, name="register"),
+    path('signup', views.signup, name="signup"),
 
     #Login/Logout Page
     path('login', views.login, name="login"),
