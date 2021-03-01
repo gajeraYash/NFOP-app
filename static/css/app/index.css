@@ -71,3 +71,9 @@ img {vertical-align: middle;}
     30%, 80% {opacity: 1;}
     }
   
+  #home .light { 
+    width:70%; 
+    margin:0 auto; 
+    border:0px none white; 
+    border-top:1px solid lightgrey; 
+}
