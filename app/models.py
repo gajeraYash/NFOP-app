@@ -13,7 +13,7 @@ class UserProfile (models.Model):
     state = models.CharField(max_length=24)
     zip_code = models.CharField(max_length=5)
 
-    phone_number = models.CharField(max_length=10)
+    phone_number = models.CharField(max_length=14)
 
     def __str__(self):
         return ( '('+self.user.username + ')\n' 
