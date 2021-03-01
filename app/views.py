@@ -24,7 +24,7 @@ def logout(request):
     return render(request, "app/index.html")
 
 def social_media(request):
-    return render(request, "app/index.html")
+    return render(request, "app/social_media.html")
 
 def donate(request):
-    return render(request, "app/index.html")
+    return render(request, "app/donate.html")
