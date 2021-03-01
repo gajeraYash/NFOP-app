@@ -1,43 +1,74 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <div class="logo-image">
+              <img src="static/assets/MiscImages/logo.png" class="img-fluid">
+        </div>
+  </a>
     <div class="container-fluid">
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#"><b>Home</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#"><b>About us</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>Donate</b></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        <b>Contact us</b>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#"><b>Contact us for</b>m</a></li>
+                        <li><a class="dropdown-item" href="#"><b>Social Media</b></a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
             <ul class="navbar-nav me-2">
+                {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign up</a>
+                    <a class="nav-link" href="#"><b>Logout</b></a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>Login</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" href="#"><b>Register</b></a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>
 </nav>
+<style>
+nav ul a{
+    font-size: 1.2rem;
+    color: white;
+    display: block;
+    padding: 0 10px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+.logo-image{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
+
+</style>

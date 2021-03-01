@@ -1,13 +1,66 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Home{% endblock %}
+        
 {% block vendor %}
 <link rel="stylesheet" href="{% static 'css/app/index.css' %}" type="text/css" media="screen">
 <script type="text/javascript" src="{% static 'js/app/index.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-<section id="home">
-  
-</section>
+<body>
+    <header>
+        <section id="home">
+            
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                <img src="static/assets/MiscImages/newarkpolice3resize.jpg" style="width:100%">
+                </div>
+                
+                <div class="mySlides fade">
+                <img src="static/assets/MiscImages/newarkpolice2resize.jpg"style="width:100%">
+                </div>
+                
+                <div class="mySlides fade">
+                <img src="static/assets/MiscImages/newarkpoliceresize.jpg" style="width:100%">
+                </div>
+                
+                </div>
+                <br>
+                
+                <div style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                </div>
+                
+                <script>
+                    var slideIndex = 0;
+                    showSlides();
+                    
+                    function showSlides() {
+                      var i;
+                      var slides = document.getElementsByClassName("mySlides");
+                      var dots = document.getElementsByClassName("dot");
+                      for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";  
+                      }
+                      slideIndex++;
+                      if (slideIndex > slides.length) {slideIndex = 1}    
+                      for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                      }
+                      slides[slideIndex-1].style.display = "block";  
+                      dots[slideIndex-1].className += " active";
+                      setTimeout(showSlides, 2000); // Change image every 2 seconds
+                    }
+                </script>
+              
+        </section> 
+    </header>
+<div>
+
+</div>
+</body>
 {% endblock %}
