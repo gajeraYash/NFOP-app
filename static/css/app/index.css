@@ -11,10 +11,11 @@
 
 #home h1 {
     margin: 0;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 700;
     line-height: 50px;
-    color: var(--main-text);
+    color: grey;
+    text-align: center;
 }
 
 #home h2 {
@@ -42,6 +43,7 @@ img {vertical-align: middle;}
     max-width: 1000px;
     position: relative;
     margin: auto;
+    
   }
   .dot {
     height: 15px;
@@ -76,4 +78,34 @@ img {vertical-align: middle;}
     margin:0 auto; 
     border:0px none white; 
     border-top:1px solid lightgrey; 
+}
+ .col-md-4{
+    margin: 10px;
+    border: 1px solid rgba(255, 255, 255, 3);
+    max-width: 500px;
+    background-color: whitesmoke;
+
+}
+.link-items {
+ 
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+  
+  
+}
+table{
+  border: 5px solid 6c757d;
+  border-collapse: collapse;
+}
+table.center {
+  margin: 20px;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
