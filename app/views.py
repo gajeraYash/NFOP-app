@@ -76,6 +76,7 @@ def social_media(request):
 def donate(request):
     return render(request, "app/donate.html")
 
-def members(request):
-    return render(request)
+@login_required
+def member(request):
+    return render(request, "app/member.html")
     
