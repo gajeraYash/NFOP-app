@@ -12,23 +12,34 @@
 <body>
   <section id="home">
     <div class="container">
-      <div class="slideshow-container">
-        <div class="mySlides fade">
-          <img src="static/assets/MiscImages/newarkpolice3resize.jpg" style="width:100%">
+      <div class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="5000" >
+            <img src="{% static 'assets/MiscImages/newarkpolice3resize.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'assets/MiscImages/newarkpolice2resize.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'assets/MiscImages/newarkpoliceresize.jpg' %}" class="d-block w-100" alt="...">
+          </div>
         </div>
-        <div class="mySlides fade">
-          <img src="static/assets/MiscImages/newarkpolice2resize.jpg" style="width:100%">
-        </div>
-        <div class="mySlides fade">
-          <img src="static/assets/MiscImages/newarkpoliceresize.jpg" style="width:100%">
-        </div>
-      </div>
-      <div style="text-align:center">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
       </div>
       <hr class="light" />
+      <div class="Mess-home-page">
+        <p class="welcome">Welcome to <br>
+          the Newark Fraternal Order of Police</p>
+        <p class="welcome-message">The Newark Fraternal Order of Police Lodge#12 is an active Union Office that represents about
+          850 active police officers and over 700 retirees. We protect our officers rights in incidents where
+          an officer has taken a legal action while on or off duty. We negociate for their benefits, salaries
+          and work schedules. Along with just being an active lodge. We also have great support form within
+          our communities that become associate members and show their support for our law enforcement
+          community. With their support we donate to various organizations.
+        </p>
+      </div>
+      <div class="video">
+        <iframe width="100%" height="500" src="https://www.youtube.com/embed/gPgHNZKvJdM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
       <div class="link-items">
         <div class="col-md-4  ">
           <h1>Important Links</h1>
@@ -93,26 +104,5 @@
       </div>
     </div>
   </section>
-  <script>
-    var slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-      setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
-  </script>
 </body>
 {% endblock %}

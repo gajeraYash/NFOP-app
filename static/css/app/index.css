@@ -112,3 +112,21 @@ th{
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+.Mess-home-page{
+  background-color: #F2F3F4 ;
+  max-width: 800px;
+  margin:0 auto;
+}
+.welcome{
+  text-align: center;
+  margin:30px;
+  font-size: 2.0em;
+  color:#2580DB;
+}
+.welcome-message{
+  text-align: center;
+  font-size: 1.300em;
+}
+.video{
+  margin-top: 40px;
+}
