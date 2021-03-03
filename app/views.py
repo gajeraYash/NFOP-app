@@ -15,7 +15,7 @@ def about(request):
     return render(request,"app/index.html")
 
 def contact(request):
-    return render(request, "app/index.html")
+    return render(request, "app/contact.html")
  
 def signup(request):
     if request.method == 'POST':
@@ -39,7 +39,7 @@ def signup(request):
                                                 'profile_form': profile_form,})
 
 def login(request):
-    return render(request, "app/index.html")
+    return render(request, "app/login.html")
 
 def logout(request):
     return render(request, "app/index.html")
