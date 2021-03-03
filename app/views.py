@@ -16,7 +16,7 @@ def test(request):
     return render(request,"app/index.html") #Replace Under The Quotes for Custom Test HTML Page
 
 def about(request):
-    return render(request,"app/index.html")
+    return render(request,"app/about.html")
 
 def contact(request):
     return render(request, "app/contact.html")
@@ -71,10 +71,11 @@ def logout(request):
     return HttpResponseRedirect(reverse('app:index'))
 
 def social_media(request):
-    return render(request, "app/index.html")
+    return render(request, "app/social_media.html")
 
 def donate(request):
-    return render(request, "app/index.html")
+    return render(request, "app/donate.html")
 
 def members(request):
     return render(request)
+    
