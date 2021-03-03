@@ -5,37 +5,25 @@
 {% endblock %}
 
 {% block content %}      
-<section id="login mb-5">
+<section id="login" class="mb-5">
     <div class="container mt-5 mb-5">
         <div class="row text-center">
-           <div class='fade-in'><h1>Log in</h1></div>
+           <div>
+               <h1>Login</h1>
+            </div>
         </div>
         <form method="POST" class="row justify-content-center">
             <div class="col-10 col-md-8 col-lg-6">
                 {% csrf_token %}
-                {% if user_form.errors %}
-                    {% for field in user_form %}
+                {% if login_form.errors %}
+                    {% for field in login_form %}
                         {% for error in field.errors %}
                             <div class="alert alert-danger" role="alert">
                                 <strong>{{ error|escape }}</strong>
                             </div>
                         {% endfor %}
                     {% endfor %}
-                    {% for error in user_form.non_field_errors %}
-                        <div class="alert alert-warning" role="alert">
-                            <strong>{{ error|escape }}</strong>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                {% if profile_form.errors %}
-                    {% for field in profile_form %}
-                        {% for error in field.errors %}
-                            <div class="alert alert-danger" role="alert">
-                                <strong>{{ error|escape }}</strong>
-                            </div>
-                        {% endfor %}
-                    {% endfor %}
-                    {% for error in profile_form.non_field_errors %}
+                    {% for error in login_form.non_field_errors %}
                         <div class="alert alert-warning" role="alert">
                             <strong>{{ error|escape }}</strong>
                         </div>
@@ -43,28 +31,21 @@
                 {% endif %}
                 <div class="row">
                     <div class="col">
-                        <label for="{{user_form.username.id_for_label}}" class="form-label">Username</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">@</span>
-                            </div>
-                            <input type="text" class="form-control"  name="{{user_form.username.name}}" placeholder = "Username" required="" id="{{user_form.username.id_for_label}}">
-                        </div> 
-                        <div for="{{user_form.username.id_for_label}}" class="form-text">{{user_form.username.help_text}}</div>
+                        <label for="{{login_form.username.id_for_label}}" class="form-label">Username</label>
+                        <input type="text" class="form-control" name="{{login_form.username.name}}" maxlength="15" required="" id="{{login_form.username.id_for_label}}">
                     </div>
                 </div>
                 <br>
-                <div class="row g-2">
+                <div class="row">
                     <div class="col">
-                            <label for="{{user_form.password1.id_for_label}}" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="{{user_form.password1.name}}" placeholder="Password" autocomplete="new-password" required="" id="{{user_form.password1.id_for_label}}">
-                            <div for="{{user_form.password1.id_for_label}}" class="form-text">{{user_form.password1.help_text}}</div>
+                        <label for="{{login_form.password.id_for_label}}" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="{{login_form.password.name}}" required="" id="{{login_form.password.id_for_label}}" aria-autocomplete="list">
                     </div>
                 </div>
                 <br>
                 <div class="row mt-3 mb-3">
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <input type="submit" class="btn btn-outline-dark" value="Submit">
+                        <input type="submit" class="btn btn-outline-dark" value="Login">
                     </div>
                 </div>
             </div>
