@@ -9,7 +9,7 @@
 <section id="signup mb-5">
     <div class="container mt-5 mb-5">
         <div class="row text-center">
-            <h1 class="fade-in">Sign up</h1>
+            <h1>Sign up</h1>
         </div>
         <form method="POST" class="row justify-content-center">
             <div class="col-10 col-md-8 col-lg-6">
@@ -45,89 +45,76 @@
                 <div class="row">
                     <div class="col">
                         <label for="{{user_form.username.id_for_label}}" class="form-label">Username</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">@</span>
-                            </div>
-                            <input type="text" class="form-control"  name="{{user_form.username.name}}" placeholder="Enter Your Username Here" maxlength="15" minlength="3" autofocus="" {% if user_form.username.value %}value="{{user_form.username.value}}"{% endif %} required="" id="{{user_form.username.id_for_label}}">
-                        </div> 
-                        <div for="{{user_form.username.id_for_label}}" class="form-text">{{user_form.username.help_text}}</div>
+                        <input type="text" class="form-control"  name="{{user_form.username.name}}" placeholder="Username" maxlength="15" minlength="3"  {% if user_form.username.value %}value="{{user_form.username.value}}"{% endif %} required="" id="{{user_form.username.id_for_label}}">
+                        <div for="{{user_form.username.id_for_label}}" class="form-text">{{user_form.username.help_text}}</div>        
                     </div>
                 </div>
-                <br>
                 <div class="row g-2">
                     <div class="col-md-6">
-                        <label for="{{user_form.first_name.id_for_label}}" class="form-label">First Name</label>
-                        <input type="text" class="form-control" name="{{user_form.first_name.name}}" placeholder="First Name"  maxlength="35" {% if user_form.first_name.value %}value="{{user_form.first_name.value}}"{% endif %} required="" id="{{user_form.first_name.id_for_label}}">
+                        <label for="{{user_form.first_name.id_for_label}}" class="form-label">First name</label>
+                        <input type="text" class="form-control" name="{{user_form.first_name.name}}" placeholder="First name"  maxlength="35" autofocus="" {% if user_form.first_name.value %}value="{{user_form.first_name.value}}"{% endif %} required="" id="{{user_form.first_name.id_for_label}}">
                     </div>
                     <div class="col-md-6">
-                        <label for="{{user_form.lasts_name.id_for_label}}"class="form-label">Last Name</label>
-                        <input type="text" class="form-control" name="{{user_form.last_name.name}}" placeholder="Last Name" maxlength="35" {% if user_form.last_name.value %}value="{{user_form.last_name.value}}"{% endif %} required="" id="{{user_form.lasts_name.id_for_label}}">
+                        <label for="{{user_form.lasts_name.id_for_label}}"class="form-label">Last name</label>
+                        <input type="text" class="form-control" name="{{user_form.last_name.name}}" placeholder="Last name" maxlength="35" {% if user_form.last_name.value %}value="{{user_form.last_name.value}}"{% endif %} required="" id="{{user_form.lasts_name.id_for_label}}">
                     </div>
                 </div>
-                <br>
                 <div class="row">
                     <div class="col">
                         <label for="{{user_form.email.id_for_label}}" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="{{user_form.email.name}}" placeholder="Email Address" maxlength="254" {% if user_form.email.value %}value="{{user_form.email.value}}"{% endif %} required="" id="{{user_form.email.id_for_label}}">
+                        <input type="email" class="form-control" name="{{user_form.email.name}}" placeholder="user@domain.com" maxlength="254" {% if user_form.email.value %}value="{{user_form.email.value}}"{% endif %} required="" id="{{user_form.email.id_for_label}}">
                         <div for="{{user_form.email.id_for_label}}" class="form-text">{{user_form.email.help_text}}</div>
                     </div>
                 </div>
-                <br>
                 <div class="row">
                     <div class="col">
                         <div class="row g-0">
                             <label for="{{user_form.password1.id_for_label}}" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="{{user_form.password1.name}}" placeholder="Enter Password" autocomplete="new-password" required="" id="{{user_form.password1.id_for_label}}">
+                            <input type="password" class="form-control" name="{{user_form.password1.name}}" placeholder="Enter password" autocomplete="new-password" required="" id="{{user_form.password1.id_for_label}}">
                             <div for="{{user_form.password1.id_for_label}}" class="form-text">{{user_form.password1.help_text}}</div>
                         </div>
-                        <br>
                         <div class="row g-0">
-                            <label for="{{user_form.password2.id_for_label}}" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" name="{{user_form.password2.name}}" placeholder = "Confirm Password" autocomplete="new-password" required="" id="{{user_form.password2.id_for_label}}">
+                            <label for="{{user_form.password2.id_for_label}}" class="form-label">Confirm password</label>
+                            <input type="password" class="form-control" name="{{user_form.password2.name}}" placeholder = "Confirm password" autocomplete="new-password" required="" id="{{user_form.password2.id_for_label}}">
                             <div for="{{user_form.password2.id_for_label}}" class="form-text">{{user_form.password2.help_text}}</div>
                         </div>
                     </div>
                 </div>
-                <br>
                 <div class="row">
                     <div class="col">
                         <label for="{{profile_form.address_1.id_for_label}}" class="form-label">Address</label>
                         <input type="text" class="form-control" placeholder="Street address, P.O. box, company name, c/o" name="{{profile_form.address_1.name}}" {% if profile_form.address_1.value %}value="{{profile_form.address_1.value}}"{% endif %} maxlength="128" required="" id="{{profile_form.address_1.id_for_label}}">
                     </div>
                 </div>
-                <br>
                 <div class="row">
                     <div class="col">
                         <label for="{{profile_form.address_2.id_for_label}}" class="form-label">Address 2</label>
                         <input type="text" class="form-control" placeholder="Apartment, suite, unit, building, floor, etc." name="{{profile_form.address_2.name}}" {% if profile_form.address_2.value %}value="{{profile_form.address_2.value}}"{% endif %} maxlength="128" id="{{profile_form.address_2.id_for_label}}">    
                     </div>
                 </div>
-                <br>
                 <div class="row g-2">
                     <div class="col-md-5">
                         <label for="{{profile_form.city.id_for_label}}" class="form-label">City</label>
-                        <input type="text" class="form-control" name="{{profile_form.city.name}}" {% if profile_form.city.value %}value="{{profile_form.city.value}}"{% endif %} maxlength="64" required="" id="{{profile_form.city.id_for_label}}">
+                        <input type="text" class="form-control" placeholder="City" name="{{profile_form.city.name}}" {% if profile_form.city.value %}value="{{profile_form.city.value}}"{% endif %} maxlength="64" required="" id="{{profile_form.city.id_for_label}}">
                     </div>
                     <div class="col-md-3">
                         <label for="{{profile_form.state.id_for_label}}" class="form-label">State</label>
-                        <input type="text" class="form-control" name="{{profile_form.state.name}}" {% if profile_form.state.value %}value="{{profile_form.state.value}}"{% endif %} maxlength="24" required="" id="{{profile_form.state.id_for_label}}">
+                        <input type="text" class="form-control" placeholder="State" name="{{profile_form.state.name}}" {% if profile_form.state.value %}value="{{profile_form.state.value}}"{% endif %} maxlength="24" required="" id="{{profile_form.state.id_for_label}}">
                     </div>
                     <div class="col-md-4">
                         <label for="{{profile_form.zip_code.id_for_label}}" class="form-label">Zip code</label>
-                        <input type="text" class="form-control" name="{{profile_form.zip_code.name}}" {% if profile_form.zip_code.value %}value="{{profile_form.zip_code.value}}"{% endif %} maxlength="24" required="" id="{{profile_form.zip_code.id_for_label}}">
+                        <input type="text" class="form-control" placeholder="Zip code" name="{{profile_form.zip_code.name}}" {% if profile_form.zip_code.value %}value="{{profile_form.zip_code.value}}"{% endif %} maxlength="24" required="" id="{{profile_form.zip_code.id_for_label}}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <label for="{{profile_form.phone_number.id_for_label}}" class="form-label">Phone number</label>
-                        <input type="text" class="form-control" name="{{profile_form.phone_number.name}}" {% if profile_form.phone_number.value %}value="{{profile_form.phone_number.value}}"{% endif %} maxlength="14" required="" id="{{profile_form.phone_number.id_for_label}}">
+                        <input type="text" class="form-control" placeholder="(000) 000-0000" name="{{profile_form.phone_number.name}}" {% if profile_form.phone_number.value %}value="{{profile_form.phone_number.value}}"{% endif %} maxlength="14" required="" id="{{profile_form.phone_number.id_for_label}}">
                     </div>
                 </div>
-                <br>
                 <div class="row mt-3 mb-3">
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <input type="submit" class="btn btn-outline-dark" value="Submit">
+                        <input type="submit" class="btn btn-outline-dark" value="Sign up">
                     </div>
                 </div>
             </div>
