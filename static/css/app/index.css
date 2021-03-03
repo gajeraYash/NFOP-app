@@ -5,21 +5,6 @@
     min-height: 100vh;
     /* Fallback for browsers that do not support Custom Properties */
     min-height: calc(var(--vh, 1vh) * 100);
-    background-color: var(--main-background);
-    background-size: cover;
-}
-
-#home h1 {
-    margin-top: 10px;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 30px;
-    color: grey;
-    text-align: center;
-}
-
-#home h2 {
-    color: var(--main-subtext);
 }
 
 .logo { 

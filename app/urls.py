@@ -27,5 +27,8 @@ urlpatterns = [
     #Donate Page
     path('donate', views.donate, name="donate"),
 
+    #temp
+    path('member', views.member, name="member"),
+
 ]
 
