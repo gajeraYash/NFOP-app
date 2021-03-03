@@ -120,13 +120,45 @@ tr:nth-child(even) {
 .welcome{
   text-align: center;
   margin:30px;
+  padding: 1%;
   font-size: 2.0em;
   color:#2580DB;
+  width: 700px;
+  margin-left: 11%;
 }
 .welcome-message{
+  font-size: 21px;
+  font-style: italic;
+  height: 100%;
+  line-height: 1.25;
+  padding: 0;
   text-align: center;
-  font-size: 1.300em;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
+  width: 700px;
+  margin-left: 11%;
 }
+.quote-wrapper{
+  height: 400px;
+  position: relative;
+  width: 900px;
+  margin-left: 10%;
+}
+.text {
+  background: radial-gradient(
+    ellipse at center,
+    rgb(237, 243, 245) 0%,
+    rgb(237, 243, 245) 70%,
+    rgba(0, 128, 172, 0) 70.3%
+  );
+  height: 100%;
+  width: 100%;
+}
+.text {
+  color: rgb(59, 58, 58);
+  position: relative;
+  margin: 0;
+}
+
 .video{
   margin-top: 40px;
 }
