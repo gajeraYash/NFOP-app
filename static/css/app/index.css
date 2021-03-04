@@ -18,12 +18,24 @@
     height:200px;
 }
 .covid-banner{
-  height: 200px;
-  position: relative;
-  width: 900px;
-  margin-left: 10%;
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+}
+.covid.pic{
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
+.click-here-covid{
+  margin:0;
+}
 * {box-sizing: border-box;}
 .mySlides {
     display:none;
