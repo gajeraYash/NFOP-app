@@ -1,0 +1,18 @@
+#banner{
+    background-color:#00357A;
+    width: 100%;
+    height: 150px;
+}
+#banner .trapezoid{
+    clip-path: polygon(0 0, 48% 0, 52% 100%, 0% 100%);
+    width: 100%;
+    height: inherit;
+    background-color: #343434 ;
+}
+
+
+@media (max-width: 767px) {
+    #banner{
+        display: none;
+    }
+}
