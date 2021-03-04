@@ -10,3 +10,8 @@ setTimeout(function(){
         console.log("Signup_Errors","Cleared");
     }
 }, 5000);
+
+$(function() {
+    $('#id_phone_number').mask('(000) 000-0000');
+});
+

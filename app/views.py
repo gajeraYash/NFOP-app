@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from app.forms import *
 from app.models import *
@@ -35,17 +39,44 @@ def signup(request):
     else:
         user_form = SignupForm()
         profile_form = UserProfileForm()
-    return render(request, 'app/signup.html', {'user_form': user_form,
+
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('app:index'))
+    else:
+        return render(request, 'app/signup.html', {'user_form': user_form,
                                                 'profile_form': profile_form,})
 
 def login(request):
-    return render(request, "app/login.html")
+    if request.method == 'POST':
+        login_form = LoginForm(request.POST)
+        if login_form.is_valid():
+            username = login_form.cleaned_data['username'].lower()
+            password = login_form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            auth_login(request,user)
+            return HttpResponseRedirect(reverse('app:index'))
+        else:
+            print("Error: Submitting Request")
+    else:
+        login_form = LoginForm()
+    
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('app:index'))
+    else:
+        return render(request,"app/login.html", {'login_form':login_form})
 
+@login_required
 def logout(request):
-    return render(request, "app/index.html")
+    auth_logout(request)
+    return HttpResponseRedirect(reverse('app:index'))
 
 def social_media(request):
     return render(request, "app/social_media.html")
 
 def donate(request):
     return render(request, "app/donate.html")
+
+@login_required
+def member(request):
+    return render(request, "app/member.html")
+    

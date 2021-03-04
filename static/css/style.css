@@ -1,10 +1,10 @@
 /*Parent CSS STYLE*/
 :root {
-  --main-primary: #284b63;
+  --main-primary: #035a94;
   --main-text: #ffffff;
-  --main-subtext: #f07167;
-  --main-other-color: #3c6e71;
-  --main-background: #353535;
+  --main-subtext: #aca106;
+  --main-other-color: #3bc8cf;
+  --main-background: #ffffff;
 }
 
 html {
@@ -24,4 +24,10 @@ html:before {
 textarea:focus,
 input:focus {
   outline: none;
+}
+
+section.full-background{
+  padding: 100px 0px;
+  width: 100%;
+  min-height: 100vh;
 }

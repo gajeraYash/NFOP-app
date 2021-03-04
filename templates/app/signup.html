@@ -3,6 +3,7 @@
 {% block title %}Sign up{% endblock %}
 {% block vendor %}
 <script src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.16/dist/jquery.mask.min.js"></script>
+<script type="text/javascript" src="{% static 'js/app/signup.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -121,7 +122,4 @@
         </form>
     </div>
 </section>
-<script>
-    $('#{{profile_form.phone_number.id_for_label}}').mask('(000) 000-0000');
-</script>
 {% endblock %}
