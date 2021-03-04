@@ -32,7 +32,12 @@
      width:200px;
     height:200px;
 }
-
+.covid-banner{
+  height: 200px;
+  position: relative;
+  width: 900px;
+  margin-left: 10%;
+}
 * {box-sizing: border-box;}
 .mySlides {
     display:none;
@@ -142,22 +147,9 @@ tr:nth-child(even) {
   position: relative;
   width: 900px;
   margin-left: 10%;
+  background-color: rgb(247, 246, 244);
 }
-.text {
-  background: radial-gradient(
-    ellipse at center,
-    rgb(237, 243, 245) 0%,
-    rgb(237, 243, 245) 70%,
-    rgba(0, 128, 172, 0) 70.3%
-  );
-  height: 100%;
-  width: 100%;
-}
-.text {
-  color: rgb(59, 58, 58);
-  position: relative;
-  margin: 0;
-}
+
 
 .video{
   margin-top: 40px;
