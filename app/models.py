@@ -2,14 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
 
-# Create your functions here.
-class Email_Field(models.EmailField):
-    def __init__(self, *args, **kwargs):
-        super(Email_Field, self).__init__(*args, **kwargs)
-
-    def get_email_value(self, value):
-        return str(value).lower()
-
 # Create your models here.
 class UserProfile (models.Model):
     user = models.OneToOneField(User, default="", on_delete=CASCADE)
@@ -62,7 +54,11 @@ class UserStatus(models.Model):
 class MailList(models.Model):
     first_name = models.CharField(max_length=35)
     last_name = models.CharField(max_length=35)
-    email = Email_Field(max_length=254)
+    email = models.CharField(max_length=254)
+
+    def save(self, *args, **kwargs):
+        self.email = self.email.lower()
+        return super(MailList, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'MailList Request'
