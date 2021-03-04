@@ -23,6 +23,7 @@
   width: 900px;
   margin-left: 10%;
 }
+
 * {box-sizing: border-box;}
 .mySlides {
     display:none;
