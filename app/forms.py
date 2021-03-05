@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
-from app.models import UserProfile
+from app.models import MailList, UserProfile
 
 class UsernameLowField(forms.CharField):
     def to_python(self, value):
@@ -63,3 +63,14 @@ class LoginForm(forms.Form):
                 raise forms.ValidationError('User status is currently inactive')
 
         return super(LoginForm,self).clean(*args, **kwargs)
+
+class MailListForm(forms.ModelForm):
+    class Meta:
+        model = MailList
+        fields = ('email', 'first_name', 'last_name')
+    
+    def clean(self):
+        email = self.cleaned_data.get('email')
+
+        if MailList.objects.filter(email=email.lower()).exists():
+            raise ValidationError("Email already subscribed for mailing list.")

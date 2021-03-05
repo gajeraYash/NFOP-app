@@ -1,15 +1,14 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/app/partials/navbar.css' %}" type="text/css" media="screen">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="static/assets/MiscImages/logo.png" class="img-fluid" width="50" height="50">
+        <a class="navbar-brand" href="{% url 'app:index' %}">
+            <img src="{%static 'assets/logos/logo.png' %}" class="img-fluid" width="50" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'app:index' %}"><b>Home</b></a>
@@ -27,7 +26,7 @@
             <ul class="navbar-nav me-2">
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><b>Members</b></a>
+                    <a class="nav-link" href="{% url 'app:member' %}"><b>Members</b></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'app:logout' %}"><b>Logout</b></a>

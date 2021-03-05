@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
 
 # Create your models here.
-
 class UserProfile (models.Model):
     user = models.OneToOneField(User, default="", on_delete=CASCADE)
     address_1 = models.CharField(max_length=128)
@@ -51,3 +50,17 @@ class UserStatus(models.Model):
     class Meta:
         verbose_name = 'User Status'
         verbose_name_plural = 'User Status'
+
+class MailList(models.Model):
+    first_name = models.CharField(max_length=35)
+    last_name = models.CharField(max_length=35)
+    email = models.CharField(max_length=254)
+
+    def save(self, *args, **kwargs):
+        self.email = self.email.lower()
+        return super(MailList, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'MailList Request'
+        verbose_name_plural = 'MailList Requests'
+    

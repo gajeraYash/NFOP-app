@@ -32,6 +32,13 @@ class UserProfileAdmin(admin.ModelAdmin):
         return obj.user.last_name
     get_user_lastname.admin_order_field  = 'user__last_name'
     get_user_lastname.short_description = 'Last name'
+
+class MailListAdmin(admin.ModelAdmin):
+    search_fields = ['email', 'first_name', 'last_name']
+    list_filter = ['email', 'first_name','last_name']
+    list_display = ['email', 'first_name','last_name']
+
 # Register your models here.
 admin.site.register(UserProfile,UserProfileAdmin)
 admin.site.register(UserStatus,UserStatusAdmin)
+admin.site.register(MailList,MailListAdmin)
