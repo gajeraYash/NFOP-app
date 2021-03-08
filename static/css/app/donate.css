@@ -1,3 +1,7 @@
+/* templates/app/donate.html */
+@import 'partials/banner.css';
+@import 'partials/navbar.css';
+
 *{
     margin: 0;
     padding: 0;

@@ -7,16 +7,18 @@
 {% endblock %}
 
 {% block content %}
-<body>
-    <section id="contact">
-        <h3>
-            You are in contact page
-        </h3>
-        <div class="row justify-content-center">
-            <div class="col">
-                Test HERE 
-            </div>
+<section id="contact">
+    <!-- Top-Banner -->
+    {% include "app/partials/banner.html" %}
+    <!-- Navbar -->
+    {% include "app/partials/navbar.html" with user=user %}
+    <h3>
+        You are in contact page
+    </h3>
+    <div class="row justify-content-center">
+        <div class="col">
+            Test HERE
         </div>
-    </section>
-</body>
+    </div>
+</section>
 {% endblock %}
