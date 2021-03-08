@@ -12,8 +12,17 @@
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
 <section id="donate">
+    <style>
+        .image-row div {
+          margin: 4px;
+          height: 600px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }     
+        </style>
 
-    <div class="pokicemen-pic">
+    <!--<div class="pokicemen-pic">
        
       <div class="policemen" style="display: flex;
        align-items: center; justify-content: center">
@@ -21,8 +30,21 @@
            <img src="static/assets/team/donatePhoto.jpg" style="width:57.5%">
         </div>
         <hr class="divLine" />
-    </div>
-    <div class="container" style="margin-top: 40px; display: flex;
+    </div>-->
+    <div class="image-grid">
+        <div class="image-row" style="display: flex;">
+      
+          <div class="" style="background-image: url('./static/assets/misc/NPDcommunity.jpg');
+            flex: auto">
+           </div>
+           
+          <div class="" style="  background-image: url('./static/assets/team/donatePhoto.jpg');
+        flex: auto">
+        <hr class="divLine"/>
+     </div>
+
+
+    <!--<div class="container" style="margin-top: 40px; display: flex;
     align-items: center; justify-content: center">
         <div class="row">
             <div class="col-sm-4" align="center">
@@ -46,8 +68,7 @@
                         <td align="center">
                             <a href="https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2" title="PayPal"
                                 onclick="javascript:window.open('https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2',
-             'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes,
-              resizable=yes, width=1060, height=700'); return false;">
+             'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes,resizable=yes, width=1060, height=700'); return false;">
                                 <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/34_Yellow_PayPal_Pill_Button.png"
                                     alt="PayPal" /></a>
                         </td>
@@ -55,7 +76,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>-->
 </section>
 
 {% endblock %}
