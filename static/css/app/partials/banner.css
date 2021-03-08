@@ -16,3 +16,14 @@
         display: none;
     }
 }
+.img-logo{
+    margin:15px;
+    float: left;
+}
+.page-name{
+    color:azure;
+    position: relative;
+    top: 18px;
+    left: 10px;
+    font-size: 45px ;
+}
