@@ -82,7 +82,10 @@ html {
 </style>
 </head>
 <body>
-
+  <!-- Top-Banner -->
+  {% include "app/partials/banner.html" %}
+  <!-- Navbar -->
+  {% include "app/partials/navbar.html" with user=user %}
 <div class="about-section">
   <h1>About Newark Fraternal Order of Police</h1>
   <p>The Newark Fraternal Order of Police Lodge #12 is an active Union Office that represents about 
