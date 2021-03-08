@@ -4,7 +4,9 @@
 {% block vendor %}
 {% endblock %}
 
-{% block content %}      
+{% block content %}     
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %} 
 <section id="login" class="full-background">
     <div class="container mt-5 mb-5">
         <div data-aos="fade-down" class="row text-center">
@@ -52,6 +54,4 @@
         </form>
     </div>
 </section>
-<br>
-<br>
 {% endblock %}

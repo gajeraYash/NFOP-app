@@ -1,3 +1,7 @@
+/* templates/app/contact.html */
+@import 'partials/banner.css';
+@import 'partials/navbar.css';
+
 #contact h3{
     color:red;
 }
