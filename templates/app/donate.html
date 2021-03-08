@@ -12,30 +12,70 @@
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
 <section id="donate">
+    <style>
+        .image-row div {
+          margin: 4px;
+          height: 600px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }     
+        </style>
 
-    <div class="pokicemen-pic">
-        <div class="policemen">
-            <img src="static/assets/MiscImages/fopbanner.jpg" style="width:100%">
+    <!--<div class="pokicemen-pic">
+       
+      <div class="policemen" style="display: flex;
+       align-items: center; justify-content: center">
+            <img src="static/assets/misc/NPDcommunity.jpg" style="width:50%">
+           <img src="static/assets/team/donatePhoto.jpg" style="width:57.5%">
         </div>
         <hr class="divLine" />
-    </div>
-    <div class="container" style="margin-top: 40px">
-        <div class="row">
-            <div class="col-sm-4">
-                <img src="static/assets/MiscImages/donatePhoto.jpg" class="img-rounded" width="300" height="230">
+    </div>-->
+    <div class="image-grid">
+        <div class="image-row" style="display: flex; margin-top: 40px;">
+      
+          <div class="" style="background-image: url('./static/assets/misc/NPDcommunity.jpg');
+            flex: auto">
+           </div>
+           <div class="image-row" style="margin-top:70px ;">
+            <p style="font-size:20px; text-align:center">Your donations to our lodge <br> will enable us to continue
+                to serve <br>the officers and the community in which <br>we serve.
+            </p>
+            <p style="font-size:20px; text-align: center">Any amount is greately appreciated. <br> The Newark Fraternal Order of Police <br>and its members thank you for your continued <br>support.
+            </p>
+            <p style="text-align: center;"> Please donate using PayPal   
+                <p align="center">
+                    <a href="https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2" title="PayPal"
+                        onclick="javascript:window.open('https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2',
+     'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes,resizable=yes, width=1060, height=700'); return false;">
+                        <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/34_Yellow_PayPal_Pill_Button.png"
+                            alt="PayPal" /></a>
+                </p>
+            </p>
             </div>
-            <div class="col-sm-4" align:center>
-                <p style="font-family: cursive; font-size:20px">Your donations to our lodge will enable us to continue
+           
+          <div class="" style="  background-image: url('./static/assets/team/donatePhoto.jpg');
+        flex: auto">
+     </div>
+     <hr>
+
+
+
+    <!--<div class="container" style="margin-top: 40px; display: flex;
+    align-items: center; justify-content: center">
+        <div class="row">
+            <div class="col-sm-4" align="center">
+                <p style="font-size:20px">Your donations to our lodge will enable us to continue
                     to serve the officers and the community in which we serve.
                 </p>
-                <p style="font-family: cursive; font-size:20px">Any amount is greately appreciated . The Newark
+                <p style="font-size:20px">Any amount is greately appreciated . The Newark
                     Fraternal Order
                     of Police and its members thank you for your continued support.
                 </p>
 
             </div>
             <div class="col-sm-4" align="center">
-                <h2 style="font-family:cursive">Please donate using PayPal</h2>
+                <h2 style="font-size: 23px">Please donate using PayPal</h2>
                 <br><br>
                 <table border="0" cellpadding="10" cellspacing="0" align="center">
                     <tr>
@@ -45,8 +85,7 @@
                         <td align="center">
                             <a href="https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2" title="PayPal"
                                 onclick="javascript:window.open('https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2',
-             'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes,
-              resizable=yes, width=1060, height=700'); return false;">
+             'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes,resizable=yes, width=1060, height=700'); return false;">
                                 <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/34_Yellow_PayPal_Pill_Button.png"
                                     alt="PayPal" /></a>
                         </td>
@@ -54,7 +93,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>-->
 </section>
 
 {% endblock %}
