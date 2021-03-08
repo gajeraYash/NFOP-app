@@ -1,0 +1,17 @@
+nav#navbar {
+    padding: 50px 20px;
+    background-color: var(--main-background);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+/* ul {
+    font-size: 75px;
+} */
+
+.nfop-logo{
+    width: 75px;
+    height: 75px;
+    margin-left: 15px;
+}

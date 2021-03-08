@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Member Only{% endblock %}
+
+{% block vendor %}
+{% endblock %}
+
+{% block content %}
+
+<body>
+  <section id="home">
+    <div class="container">
+      <div class="row text-center">
+        <h4>User Info</h4>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>Username:</strong></div>
+        <div class="col-md-6">{{user.username}}</div>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>First name:</strong></div>
+        <div class="col-md-6">{{user.first_name}}</div>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>Last name:</strong></div>
+        <div class="col-md-6">{{user.last_name}}</div>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>Email:</strong></div>
+        <div class="col-md-6">{{user.email}}</div>
+      </div>
+      <div class="row text-center">
+        <h4>Profile Info</h4>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>Address 1:</strong></div>
+        <div class="col-md-6">{{user.userprofile.address_1}}</div>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>Address 2:</strong></div>
+        <div class="col-md-6">{{user.userprofile.address_2}}</div>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>City:</strong></div>
+        <div class="col-md-6">{{user.userprofile.city}}</div>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>State:</strong></div>
+        <div class="col-md-6">{{user.userprofile.state}}</div>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>Zip code:</strong></div>
+        <div class="col-md-6">{{user.userprofile.zip_code}}</div>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>Phone number:</strong></div>
+        <div class="col-md-6">{{user.userprofile.phone_number}}</div>
+      </div>
+      <div class="row text-center">
+        <h4>User Status Info</h4>
+      </div>
+      <div class="row g-1 justify-content-center">
+        <div class="col-md-3 text-end"><strong>Member Status:</strong></div>
+        <div class="col-md-6">{{user.userstatus.get_status_display}}</div>
+      </div>
+    </div>
+  </section>
+</body>
+
+{% endblock %}
