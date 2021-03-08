@@ -1,7 +1,6 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
+/* templates/app/about.html */
+@import 'partials/banner.css';
+@import 'partials/navbar.css';
 
 html {
   box-sizing: border-box;
