@@ -10,17 +10,71 @@
 {% include "app/partials/banner.html" %}
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
+
 <section id="donate">
     <style>
-        .image-row div {
+       /* .image-row div {
           margin: 4px;
           height: 600px;
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center center;
-        }     
+        }     */
         </style>
+    <div class="container-md d-inline mx-auto">
+        <div data-aos="fade-down" class="row justify-content-center align-items-center">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/static/assets/misc/NPDcommunity.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <p class="card-text text-center fs-3 lh-lg">
+                                Your donations to our lodge will enable us to continue
+                                to serve the officers and the community in which we serve
+                            </p>
+                            <p class="card-text text-center fs-3 lh-lg">
+                                Any amount is greately appreciated 
+                            </p>
+                            <p class="text-center fs-5"> Please donate using PayPal   
+                                <p class="text-center fs-3">
+                                    <a href="https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2" title="PayPal"
+                                        onclick="javascript:window.open('https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2',
+                     'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes,resizable=yes, width=1060, height=700'); return false;">
+                                        <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/34_Yellow_PayPal_Pill_Button.png"
+                                            alt="PayPal" /></a>
+                                </p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+           <!-- <div class="col-sm">
+                <img src="/static/assets/misc/NPDcommunity.jpg" class="rounded mx-auto d-block" alt="">
+            </div>
+            
+            <div class="col-sm align-items-center">
+                <p class="text-center fs-3">Your donations to our lodge will enable us to continue
+                    to serve the officers and the community in which we serve.
+                </p> 
+                <p class="text-center fs-3">Any amount is greately appreciated.</p>
+                <br><br> 
+                <p class="text-center fs-5"> Please donate using PayPal   
+                    <p class="text-center fs-3">
+                        <a href="https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2" title="PayPal"
+                            onclick="javascript:window.open('https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2',
+         'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes,resizable=yes, width=1060, height=700'); return false;">
+                            <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/34_Yellow_PayPal_Pill_Button.png"
+                                alt="PayPal" /></a>
+                    </p>
+                </p>
+            </div>
+
+        </div>-->
+    </div>
+    
     <!--<div class="pokicemen-pic">
        
       <div class="policemen" style="display: flex;
@@ -30,7 +84,7 @@
         </div>
         <hr class="divLine" />
     </div>-->
-    <div class="image-grid">
+   <!-- <div class="image-grid">
         <div class="image-row" style="display: flex; margin-top: 40px;">
       
           <div class="" style="background-image: url('./static/assets/misc/NPDcommunity.jpg');
@@ -56,7 +110,7 @@
           <div class="" style="  background-image: url('./static/assets/team/donatePhoto.jpg');
         flex: auto">
      </div>
-     <hr>
+     <hr>-->
 
 
 
@@ -94,5 +148,6 @@
         </div>
     </div>-->
 </section>
+<br>
 
 {% endblock %}
