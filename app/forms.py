@@ -32,7 +32,7 @@ class SignupForm(UserCreationForm):
         email = self.cleaned_data.get('email')
         username = self.cleaned_data.get('username')
 
-        if User.objects.filter(username=username.lower()).exists():
+        if User.objects.filter(username=username).exists():
             raise ValidationError("Username already in use.")
         if User.objects.filter(email=email.lower()).exists():
             raise ValidationError("Email already in use.")
