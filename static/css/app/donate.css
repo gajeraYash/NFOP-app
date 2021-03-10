@@ -1,82 +1,12 @@
 /* templates/app/donate.html */
+
 @import 'partials/banner.css';
 @import 'partials/navbar.css';
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
+#donate .donate-info{
+    margin: 50px 0px;
 }
 
-html, body{
-    font-family:Arial, Helvetica, sans-serif;
-    line-height: 1.7em;
+#donate .donate-info .donate-img{
+    padding: 10px;
 }
-
-a{
-    color:#ffcc00 ;
-    text-decoration: none;
-   
-}
-
-.bannerimage{
-    max-width: 100%;
-    background-image: url('fopbanner.jpg');
-    background-repeat:no-repeat;
-    height: 350px;
-    background-color: #4d79ff;
-    background-position: center;
-    overflow:auto;
-}
-.container{
-    margin:auto;
-    max-width: 1100px;
-    overflow: auto;
-    padding: 0 20px;
-}
-#navbar{
-    background:#0e225f;
-    color:#fff;
-}
-#navbar ul{
-    list-style: none;
-    float: right;
-}
-#navbar ul li{
-    float: left;
-    display:block;
-    padding: 20px;
-    text-align: center;
-}
-
-#navbar .logo{
-    float:left;
-    padding-top: 20px;
-}
-
-/*show presentation*/
-#showcase{
-    
-    background: url('newarkpoliceresizeE.jpg') no-repeat 
-    center center/cover;
-    height:600px;
-    max-width:100%;
-}
-
-#welcome{
-    display:flow-root;
-    box-sizing:border-box;
-    background: #fff;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.welcome-letters{
-    text-align: center;
-    font-size:30px;
-    line-height:1.2;
-    color:#3a69bf!important;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-

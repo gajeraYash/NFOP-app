@@ -26,8 +26,6 @@ def contact(request):
             contact_form.save()
             messages.success(request, 'Contact form has been submitted.')
             return HttpResponseRedirect(reverse('app:contact'))
-        else:
-            messages.error(request, "Error Submitting Form")
     else:
         contact_form = FeedbackContactForm()
     return render(request, "app/contact.html", {'contact_form': contact_form})
