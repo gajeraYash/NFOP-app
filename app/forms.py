@@ -58,9 +58,9 @@ class LoginForm(forms.Form):
             user = authenticate(username=username, password=password)
             
             if not user:
-                raise forms.ValidationError('Invalid username or password.')
+                raise forms.ValidationError('Invalid username or password.', code="invalid_uid")
             if not user.is_active:
-                raise forms.ValidationError('User status is currently inactive')
+                raise forms.ValidationError('User status is currently inactive', code="invalid_uemail")
 
         return super(LoginForm,self).clean(*args, **kwargs)
 
