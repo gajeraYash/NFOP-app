@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -19,7 +20,17 @@ def about(request):
     return render(request,"app/about.html")
 
 def contact(request):
-    return render(request, "app/contact.html")
+    if request.method == 'POST':
+        contact_form = FeedbackContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, 'Contact form has been submitted.')
+            return HttpResponseRedirect(reverse('app:contact'))
+        else:
+            messages.error(request, "Error Submitting Form")
+    else:
+        contact_form = FeedbackContactForm()
+    return render(request, "app/contact.html", {'contact_form': contact_form})
  
 def signup(request):
     if request.method == 'POST':
@@ -42,8 +53,8 @@ def signup(request):
 
     if request.user.is_authenticated:
         return HttpResponseRedirect(reverse('app:index'))
-    else:
-        return render(request, 'app/signup.html', {'user_form': user_form,
+    
+    return render(request, 'app/signup.html', {'user_form': user_form,
                                                 'profile_form': profile_form,})
 
 def login(request):
@@ -62,8 +73,8 @@ def login(request):
     
     if request.user.is_authenticated:
         return HttpResponseRedirect(reverse('app:index'))
-    else:
-        return render(request,"app/login.html", {'login_form':login_form})
+
+    return render(request,"app/login.html", {'login_form':login_form})
 
 @login_required
 def logout(request):
