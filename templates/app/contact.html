@@ -7,18 +7,73 @@
 {% endblock %}
 
 {% block content %}
-<section id="contact">
-    <!-- Top-Banner -->
-    {% include "app/partials/banner.html" %}
-    <!-- Navbar -->
-    {% include "app/partials/navbar.html" with user=user %}
-    <h3>
-        You are in contact page
-    </h3>
-    <div class="row justify-content-center">
-        <div class="col">
-            Test HERE
+<!-- Top-Banner -->
+{% include "app/partials/banner.html" %}
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %}
+<section id="contact" class="full-background">
+    <div class="container mt-5 mb-5">
+        <div class="row text-center">
+            <h1>Contact us</h1>
         </div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% else %}
+        {% if contact_form.errors %}
+            {% for field in contact_form %}
+                {% for error in field.errors %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in contact_form.non_field_errors %}
+                <div class="alert alert-warning" role="alert">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if contact_form.email.errors %}
+        
+        {% endif %}
+        <form method="POST" class="row justify-content-center">
+            <div class="col-10 col-md-8 col-lg-6">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        <label for="{{contact_form.full_name.id_for_label}}" class="form-label">Full name</label>
+                        <input type="text" class="form-control {% if contact_form.full_name.errors %}is-invalid{% endif %}" name="{{contact_form.full_name.name}}" placeholder="Full name" maxlength="200" {% if contact_form.full_name.value %}value="{{contact_form.full_name.value}}"{% endif %} required="" id="{{contact_form.full_name.id_for_label}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="{{contact_form.email.id_for_label}}" class="form-label">Email</label>
+                        <input type="email" class="form-control {% if contact_form.email.errors %}is-invalid{% endif %}" name="{{contact_form.email.name}}" placeholder="Email" maxlength="200" {% if contact_form.email.value %}value="{{contact_form.email.value}}"{%endif %} required="" id="{{contact_form.email.id_for_label}}">
+                        <div for="{{contact_form.email.id_for_label}}" class="form-text">We will never share your email.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="{{contact_form.subject.id_for_label}}" class="form-label">Subject</label>
+                        <input type="text" class="form-control {% if contact_form.subject.errors %}is-invalid{% endif %}" name="{{contact_form.subject.name}}" placeholder="Subject" maxlength="200" {% if contact_form.subject.value %}value="{{contact_form.subject.value}}"{% endif %} required="" id="{{contact_form.subject.id_for_label}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="{{contact_form.message.id_for_label}}" class="form-label">Message</label>
+                        <textarea class="form-control {% if contact_form.message.errors %}is-invalid{% endif %}" name="{{contact_form.message.name}}" rows="10" maxlength="500" placeholder="Message" required="" id="{{contact_form.message.id_for_label}}">{% if contact_form.message.value %}{{contact_form.message.value}} {% endif %}</textarea>
+                    </div>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <input type="submit" class="btn btn-outline-dark" value="Sign up">
+                </div>
+            </div>
+        </form>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

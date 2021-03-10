@@ -38,7 +38,14 @@ class MailListAdmin(admin.ModelAdmin):
     list_filter = ['email', 'first_name','last_name']
     list_display = ['email', 'first_name','last_name']
 
+class FeedbackContactAdmin(admin.ModelAdmin):
+    list_display = ['full_name', 'email', 'subject','date']
+    list_filter = ['date']
+    search_fields = ['full_name', 'email']
+    date_hierarchy = 'date'
+
 # Register your models here.
 admin.site.register(UserProfile,UserProfileAdmin)
 admin.site.register(UserStatus,UserStatusAdmin)
 admin.site.register(MailList,MailListAdmin)
+admin.site.register(FeedbackContact,FeedbackContactAdmin)

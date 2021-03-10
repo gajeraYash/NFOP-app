@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
-from app.models import MailList, UserProfile
+from app.models import FeedbackContact, MailList, UserProfile
 
 class UsernameLowField(forms.CharField):
     def to_python(self, value):
@@ -74,3 +74,8 @@ class MailListForm(forms.ModelForm):
 
         if MailList.objects.filter(email=email.lower()).exists():
             raise ValidationError("Email already subscribed for mailing list.")
+
+class FeedbackContactForm(forms.ModelForm):
+    class Meta:
+        model = FeedbackContact
+        fields = ('full_name', 'email', 'subject', 'message')

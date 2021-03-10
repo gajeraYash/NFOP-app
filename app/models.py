@@ -66,14 +66,16 @@ class MailList(models.Model):
 
 
 class FeedbackContact(models.Model):
-    name = models.CharField(max_length=200, help_text="Name of the sender")
+    full_name = models.CharField(max_length=200,default="")
     email = models.EmailField(max_length=200)
     subject = models.CharField(max_length=200)
     message = models.TextField(max_length=500)
     date = models.DateTimeField(auto_now_add=True)
-    
+
+    def save(self, *args, **kwargs):
+        self.email = self.email.lower()
+        return super(FeedbackContact, self).save(*args, **kwargs)
+
     class Meta:
         verbose_name = "Feedback Contact Request"
         verbose_name_plural = "Feedback Contact Requests"
-    
-    
