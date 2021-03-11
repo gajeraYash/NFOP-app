@@ -1,116 +1,87 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}About{% endblock %}
-
 {% block vendor %}
 <link rel="stylesheet" href="{% static 'css/app/about.css' %}" type="text/css" media="screen">
 {% endblock %}
 
 {% block content %}
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-.column {
-  float: left;
-  width: 33.3%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
-}
-
-.about-section {
-  padding: 50px;
-  text-align: center;
-  background-color: #38519c;
-  color: white;
-}
-.container {
-  padding: 0 16px;
-}
-
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.title {
-  color: grey;
-}
-
-.button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #555;
-}
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
-</style>
-</head>
-<body>
-  <!-- Top-Banner -->
-  {% include "app/partials/banner.html" %}
-  <!-- Navbar -->
-  {% include "app/partials/navbar.html" with user=user %}
-<div class="about-section">
-  <h1>About Newark Fraternal Order of Police</h1>
-  <p>The Newark Fraternal Order of Police Lodge #12 is an active Union Office that represents about 
-      850 active police officers and over 700 retirees. We protect our officers rights in incidents
-      where an officer has taken legal action while on or off duty. We negotiate for their benefits,
-      salaries and work schedules. Along with just being an active lodge. We also have great support 
-      from within our communities that become associate memebers and show their support for our law 
-      enforcement community. With their support we donate to various organizations.</p>
-</div>
-
-<h2 style="text-align:center">Meet Our Team</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="{% static 'assets/team/pres.jpg' %}" alt="James" style="padding:0px 20px;height: 300px; width:100%;object-fit:cover; object-position: 20% 20%;">
-      <div class="container">
-        <h2>James Stewart Jr.</h2>
-        <p class="title">President</p>
-        <p>stewee68@comcast.net</p>
-        <p>732-991-0689</p>
-        <p><button class="button">Contact</button></p>
+<!-- Top-Banner -->
+{% include "app/partials/banner.html" %}
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %}
+<section id="about" class="full-background">
+  <div class="about-info text-center">
+    <div class="container">
+      <h1>Newark Fraternal Order of Police</h1>
+      <p class="lead">The Newark Fraternal Order of Police Lodge #12 is an active Union Office that represents about 
+        850 active police officers and over 700 retirees. We protect our officers rights in incidents
+        where an officer has taken legal action while on or off duty. We negotiate for their benefits,
+        salaries and work schedules. Along with just being an active lodge. We also have great support 
+        from within our communities that become associate memebers and show their support for our law 
+        enforcement community. With their support we donate to various organizations.
+      </p>
+    </div>
+  </div>
+  <div class="team-info text-center">
+    <h2>Meet Our Team</h2>
+      <div class="row g-0 justify-content-center">
+        <div class="card shadow align-items-center" style="width: 25rem;">
+          <img src="{% static 'assets/team/pres.jpg' %}" class="card-img-top" style="object-position: 0 20%;" alt="President">
+          <div class="card-body">
+            <h5 class="card-title">James Stewart Jr.</h5>
+            <p class="text-muted">President</p>
+            <p>stewee68@comcast.net</p>
+            <p>732-991-0689</p>
+            <a href="mailto:stewee68@comcast.net" class="btn btn-primary">Contact</a>
+          </div>
+        </div>
+        <div class="card shadow align-items-center" style="width: 25rem;">
+          <img src="{% static 'assets/team/vp.jpg' %}" class="card-img-top" style="object-position: 0 20%;" alt="President">
+          <div class="card-body">
+            <h5 class="card-title">Walter Melvin</h5>
+            <p class="text-muted">Vice President</p>
+            <p>wal6425@aol.com</p>
+            <p>973-642-0390</p>
+            <a href="mailto:wal6425@aol.com" class="btn btn-primary">Contact</a>
+          </div>
+        </div>
       </div>
+      <div class="row g-0 justify-content-center">
+        <div class="card align-items-center" style="width: 25rem;">
+          <img src="{% static 'assets/team/tres.jpg' %}" class="card-img-top" style="object-position: 0 20%;" alt="President">
+          <div class="card-body">
+            <h5 class="card-title">James Stewart Jr.</h5>
+            <p class="text-muted">President</p>
+            <p>stewee68@comcast.net</p>
+            <p>732-991-0689</p>
+            <a href="mailto:stewee68@comcast.net" class="btn btn-primary">Contact</a>
+          </div>
+        </div>
+        <div class="card align-items-center" style="width: 25rem;">
+          <img src="{% static 'assets/team/pres.jpg' %}" class="card-img-top" alt="President">
+          <div class="card-body">
+            <h5 class="card-title">James Stewart Jr.</h5>
+            <p class="text-muted">President</p>
+            <p>stewee68@comcast.net</p>
+            <p>732-991-0689</p>
+            <a href="mailto:stewee68@comcast.net" class="btn btn-primary">Contact</a>
+          </div>
+        </div>
+        <div class="card align-items-center" style="width: 25rem;">
+          <img src="{% static 'assets/team/pres.jpg' %}" class="card-img-top" alt="President">
+          <div class="card-body">
+            <h5 class="card-title">James Stewart Jr.</h5>
+            <p class="text-muted">President</p>
+            <p>stewee68@comcast.net</p>
+            <p>732-991-0689</p>
+            <a href="mailto:stewee68@comcast.net" class="btn btn-primary">Contact</a>
+          </div>
+        </div>
     </div>
   </div>
 
-  <div class="column">
+  <!-- <div class="column">
     <div class="card">
       <img src="{% static 'assets/team/vp.jpg' %}" alt="James" style="padding:0px 20px;height: 300px; width:100%;object-fit:cover; object-position: 20% 20%;">
       <div class="container">
@@ -160,8 +131,6 @@ html {
         <p><button class="button">Contact</button></p>
       </div>
     </div>
-  </div>
-</div>
-
-</body>
+  </div> -->
+</section>
 {% endblock %}
