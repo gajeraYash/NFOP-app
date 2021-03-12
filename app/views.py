@@ -11,7 +11,7 @@ from app.models import *
 # Create your views here.
 
 def index(request):
-    return render(request,"app/index.html", {'numIMG' : range(1,13)})
+    return render(request,"app/index.html", {'numIMG' : range(1,11)})
 
 def test(request):
     return render(request,"app/index.html") #Replace Under The Quotes for Custom Test HTML Page
