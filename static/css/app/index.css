@@ -1,0 +1,111 @@
+/* templates/app/index.html */
+@import 'partials/banner.css';
+@import 'partials/navbar.css';
+
+#home {
+  width: 100%;
+  min-height: 100vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+#home .covid-banner{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+#home .covid-banner a{
+  color: white;
+}
+
+#home .covid-banner .covid-img{
+  width: 100%;
+  max-height: 125px; /* height of container */
+  object-fit: cover;
+  object-position: 0% 30% ;
+  filter: brightness(70%);
+}
+
+#home .covid-banner:hover .covid-img {
+  filter: brightness(50%);
+}
+
+#home .covid-banner .top-centered {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#home .covid-banner .bottom-centered {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#home .carousel-inner .carousel-item img{
+  width:100%;
+  height: 650px !important;
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+
+#home .welcome-wrapper{
+  height: auto;
+  width: 100%;
+  background-color: rgb(247, 246, 244);
+}
+
+#home .welcome-wrapper .welcome-info{
+  padding: 50px 30px;
+}
+
+#home .welcome-wrapper .welcome-info .title{
+  color:#2580DB;
+  padding-bottom: 20px;
+}
+
+#home .welcome-wrapper .welcome-info .info{
+  font-size: medium;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
+}
+
+#home .links-container{
+  padding: 10px 50px;
+}
+
+@media (max-width: 767px) {
+
+  #home .covid-banner .covid-img{
+    max-height: 85px; 
+    object-position: center;
+  }
+
+  #home .covid-banner .bottom-centered {
+    width: 98%;
+    font-size: xx-small;
+  }
+
+  #home .carousel-inner .carousel-item img{
+    height: 400px !important;
+    object-position: center;
+  }
+
+}
+
+@media (max-width: 992px){
+  
+  #home .carousel-inner .carousel-item img{
+    height: 500px !important;
+  }
+
+}
+
+#home .video{
+  padding: 30px 60px;
+}
+

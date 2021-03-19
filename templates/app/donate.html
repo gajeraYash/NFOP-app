@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Donate{% endblock %}
+{% block vendor %}
+<link rel="stylesheet" href="{% static 'css/app/donate.css' %}" type="text/css" media="screen">
+<script type="text/javascript" src="{% static 'js/app/index.js' %}"></script>
+{% endblock %}
+{% block content %}
+<!-- Top-Banner -->
+{% include "app/partials/banner.html" %}
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %}
+
+<section id="donate" class="full-background">
+    <div class="container">
+        <div class="donate-info justify-content-center align-items-center">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-md-5 col-lg-4">
+                        <img src="/static/assets/misc/NPDcommunity.jpg" class="img-fluid donate-img" alt="">
+                    </div>
+                    <div class="col-md-7 col-lg-8">
+                        <div class="card-body">
+                            <div class="lead text-center fs-2">
+                                <p class="fs-2">Your donations to our lodge will enable us to continue
+                                    to serve the officers and the community in which we serve</p>
+                                Any amount is greately appreciated
+                            </div>
+                            <!-- <p class="card-text text-center fs-3 lh-lg">
+                                Your donations to our lodge will enable us to continue
+                                to serve the officers and the community in which we serve
+                            </p>
+                            <p class="card-text text-center fs-3 lh-lg">
+                                Any amount is greately appreciated
+                            </p> -->
+                            <p class="text-center text-muted fs-5"> Please donate using PayPal
+                            <p class="text-center fs-3">
+                                <a href="https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2"
+                                    title="PayPal"
+                                    onclick="javascript:window.open('https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2',
+                     'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes,resizable=yes, width=1060, height=700'); return false;">
+                                    <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/34_Yellow_PayPal_Pill_Button.png"
+                                        alt="PayPal" /></a>
+                            </p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+
+{% endblock %}

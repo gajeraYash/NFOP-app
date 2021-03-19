@@ -1,0 +1,31 @@
+<!--Template/base.html-->
+<!DOCTYPE html>
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %} {% endblock %}</title>
+    <meta name="description" content="{% block description %} {% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% static 'vendor/icofont/icofont.min.css' %}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% static 'vendor/aos/aos.css' %}" type="text/css" media="screen">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vendor/aos/aos.js' %}"></script>
+    {% block vendor %} {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+
+<footer>
+    {% include "app/partials/footer.html" %}
+</footer>
+
+</html>

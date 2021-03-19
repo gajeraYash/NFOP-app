@@ -1,0 +1,8 @@
+Contact Request Form
+{{date}}
+
+Name: {{full_name}}
+Email: {{email}}
+Subject: {{subject}}
+Message:
+{{message|linebreaks}}

@@ -1,0 +1,22 @@
+/* templates/app/about.html */
+@import 'partials/banner.css';
+@import 'partials/navbar.css';
+
+#about .about-info{
+  background-color: #00357A;
+  color: white;
+  padding: 50px 0px;
+}
+
+
+#about .team-info .card{
+  margin: 10px 20px;
+}
+
+#about .team-info .card img{
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 3%;
+  margin: 10px 0px;
+}

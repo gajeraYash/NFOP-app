@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block vendor %}
+<link rel="stylesheet" href="{% static 'css/app/index.css' %}" type="text/css" media="screen">
+<script type="text/javascript" src="{% static 'js/app/index.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<!-- Top-Banner -->
+{% include "app/partials/banner.html" %}
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %}
+<section id="home">
+  <!-- Covid-Banner -->
+  <div class="covid-banner">
+    <a href="https://fopcovid19.org/" target="_blank">
+      <img src="{% static 'assets/misc/covid-banner.jpg' %}" class="covid-img">
+      <div class="top-centered">
+        <h1>COVID 19</h1>
+      </div>
+      <div class="bottom-centered">
+        Click here fot the latest resouces available and news about the FOP's activities in response to COVID-19
+      </div>
+    </a>
+  </div>
+  <div class="carousel slide carousel-fade" data-bs-pause="false" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="4000">
+        <img src="{% static 'assets/carousel/home/slide0.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      {% for n in numIMG %}
+      {% with n|stringformat:"s" as imgID %}
+      {% with 'assets/carousel/home/slide'|add:imgID|add:'.jpg' as slideIMG %}
+      <div class="carousel-item" data-bs-interval="4000">
+        <img src="{% static slideIMG %}" class="d-block w-100" alt="...">
+      </div>
+      {% endwith %}
+      {% endwith %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="welcome-wrapper">
+    <div class="welcome-info text-center">
+      <h1 class="title">Welcome to the<br> Newark Fraternal Order of Police</h1>
+      <p class="info">The Newark Fraternal Order of Police Lodge#12 is an active Union Office that
+        represents about
+        850 active police officers and over 700 retirees. We protect our officers rights in incidents where
+        an officer has taken a legal action while on or off duty. We negociate for their benefits, salaries
+        and work schedules. Along with just being an active lodge. We also have great support form within
+        our communities that become associate members and show their support for our law enforcement
+        community. With their support we donate to various organizations.
+      </p>
+    </div>
+  </div>
+  <div class="links-container">
+    <div data-aos="fade-up" class="row justify-content-center">
+      <div class="col-md-4">
+        <h3 class="text-center">Important Links</h3>
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="http://npd.newarkpublicsafety.org" target="_blank">Newark Police
+                Department</a></li>
+            <li class="list-group-item"><a href="https://www.newarknj.gov/" target="_blank">City of Newark</a></li>
+            <li class="list-group-item"><a href="https://www.nj.gov/treasury/pensions/pension-active-pers.shtml"
+                target="_blank">New Jersey PERS</a></li>
+            <li class="list-group-item"><a href="https://www.dol.gov/" target="_blank">US Dept. Of Labor</a></li>
+            <li class="list-group-item"><a href="https://nleomf.org/" target="_blank">National Law Enforcement Officers
+                Memorial</a></li>
+          </ul>
+        </div>
+      </div>
+      <div data-aos="fade-up" class="col-md-4">
+        <h3 class="text-center">Action Center</h3>
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="https://njfop.com/" target="_blank">New Jersey Fraternal Order of
+                Police</a></li>
+            <li class="list-group-item"><a href="https://www.fop.net/" target="_blank">National Fraternal Order of
+                Police</a></li>
+            <li class="list-group-item">New Jersey PERS</li>
+            <li class="list-group-item">US Dept. Of Labor</li>
+            <li class="list-group-item">National Law Enforcement Officers Memorial</li>
+          </ul>
+        </div>
+      </div>
+      <div data-aos="fade-up" class="col-md-4">
+        <h3 class="text-center">Useful Resources</h3>
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">New Jersey Fraternal Order of Police</li>
+            <li class="list-group-item">National Fraternal Order of Police</li>
+            <li class="list-group-item">New Jersey PERS</li>
+            <li class="list-group-item">US Dept. Of Labor</li>
+            <li class="list-group-item">National Law Enforcement Officers Memorial</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="video">
+    <iframe width="100%" height="500" src="https://www.youtube.com/embed/gPgHNZKvJdM" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+</section>
+{% endblock %}

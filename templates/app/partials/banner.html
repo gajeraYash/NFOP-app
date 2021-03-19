@@ -1,0 +1,36 @@
+{% load static %}
+<div id="banner">
+    <div class="banner-info align-items-center d-flex">
+        <img src="{% static 'assets/logos/nfop-banner.png' %}" class="img-fluid nfop-banner">
+        <div class="d-flex ms-auto">
+            <div class="social-maillist">
+            <div class="social-media justify-content-end text-end">
+                <a href="https://www.facebook.com/groups/138607976161088/"><i class="icofont-facebook icofont-2x"></i></a>
+                <a href=""><i class="icofont-youtube-play icofont-2x"></i></a>
+            </div>
+            <div class="maillist-modal text-end">
+                <a type="text/html" data-bs-toggle="modal" data-bs-target="#exampleModal"><h3>Join our Mailing List</h3></a>
+                <p>Stay Up To Date With Our Latest News</p>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+

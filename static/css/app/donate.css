@@ -1,0 +1,12 @@
+/* templates/app/donate.html */
+
+@import 'partials/banner.css';
+@import 'partials/navbar.css';
+
+#donate .donate-info{
+    margin: 50px 0px;
+}
+
+#donate .donate-info .donate-img{
+    padding: 10px;
+}
