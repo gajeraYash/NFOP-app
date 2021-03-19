@@ -1,0 +1,44 @@
+#banner{
+    background: linear-gradient( -60deg, #343434 0%, #343434 40%, #00357A 40%, #00357A 0%);
+    width: 100%;
+    height: 150px;
+}
+
+#banner .banner-info{
+    height: 150px;
+    margin: 0px 60px 0 50px;
+}
+
+#banner .banner-info .nfop-banner{
+    max-width: 60%;
+    max-height: 150px;
+}
+
+#banner .banner-info .social-maillist .social-media a{
+    text-decoration: none;
+    color: white;
+}
+
+#banner .banner-info .social-maillist .social-media i:hover{
+    color: grey;
+}
+
+#banner .banner-info .social-maillist .maillist-modal{
+    margin-top: 10px;
+    color:white;
+}
+
+#banner .banner-info .social-maillist .maillist-modal a{
+    cursor: pointer;
+}
+
+#banner .banner-info .social-maillist .maillist-modal p{ 
+    font-size: small;
+    font-style: italic;
+}
+
+@media (max-width: 767px) {
+    #banner{
+        display: none;
+    }
+}
