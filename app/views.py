@@ -2,9 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth import authenticate
-from django.core.mail import send_mail, EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string, get_template
-# from django.utils.html import strip_tags
 from django.conf import settings
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -13,6 +12,10 @@ from django.urls import reverse
 from datetime import datetime
 from app.forms import *
 from app.models import *
+from django.utils.http import urlsafe_base64_encode
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+
 # Create your views here.
 
 def index(request):
@@ -23,6 +26,9 @@ def test(request):
 
 def about(request):
     return render(request,"app/about.html")
+
+def donate(request):
+    return render(request, "app/donate.html")
 
 def contact(request):
     if request.method == 'POST':
@@ -107,11 +113,70 @@ def logout(request):
     auth_logout(request)
     return HttpResponseRedirect(reverse('app:index'))
 
-def social_media(request):
-    return render(request, "app/social_media.html")
+def password_forgot(request):
+    if request.method == 'POST':
+        form = ForgotPasswordForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data['username'].lower()
+            associated_users = User.objects.filter(username=data)
+            if associated_users.exists():
+                for user in associated_users:
+                    subject = "Reset Password - NewarkFOP"
+                    email_template_name = "email/reset_password.html"
+                    textemail_template_name = "email/reset_password.txt"
+                    context = {
+                        'domain':'127.0.0.1:8000',
+                        'title': 'Newark Fraternal Order of Police',
+                        "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+                        "user": user,
+                        'token': default_token_generator.make_token(user),
+                        'protocol': 'http',
+                    }
+                    html_content = render_to_string(email_template_name, context)
+                    text_content = get_template(textemail_template_name).render(context)
+                    template_email = EmailMultiAlternatives(
+                        subject,
+                        text_content,
+                        settings.EMAIL_HOST_USER,
+                        [user.email]
+                    )
+                    template_email.attach_alternative(html_content, "text/html")
+                    template_email.send()
+            return HttpResponseRedirect(reverse('app:forgot_password_done'))
+    else:
+        form = ForgotPasswordForm()
+    
+    return render(request, 'app/password/password_reset.html', {'form': form})
 
-def donate(request):
-    return render(request, "app/donate.html")
+def username_forgot(request):
+    if request.method == 'POST':
+        form = ForgotUsernameForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data['email'].lower()
+            user = User.objects.filter(email=data)
+            if user.exists():
+                subject = "Forgot Username - NewarkFOP"
+                email_template_name = "email/forgot_username.html"
+                textemail_template_name = "email/forgot_username.txt"
+                context = {
+                    'title': 'Newark Fraternal Order of Police',
+                    'username' : user[0].username,
+                }
+                html_content = render_to_string(email_template_name, context)
+                text_content = get_template(textemail_template_name).render(context)
+                template_email = EmailMultiAlternatives(
+                    subject,
+                    text_content,
+                    settings.EMAIL_HOST_USER,
+                    [user[0].email]
+                )
+                template_email.attach_alternative(html_content, "text/html")
+                template_email.send()
+        return HttpResponseRedirect(reverse('app:forgot_password_done'))
+    else:
+        form = ForgotUsernameForm()
+    
+    return render(request, 'app/account/username_forgot.html', {'form': form})
 
 @login_required
 def member(request):
