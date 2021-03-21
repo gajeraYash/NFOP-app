@@ -46,7 +46,7 @@ class UserProfileForm(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=15)
+    username = forms.CharField(max_length=15, min_length=3)
     password = forms.CharField(widget=forms.PasswordInput)
 
     def clean(self, *args, **kwargs):
@@ -79,3 +79,9 @@ class FeedbackContactForm(forms.ModelForm):
     class Meta:
         model = FeedbackContact
         fields = ('full_name', 'email', 'subject', 'message')
+
+class ForgotPasswordForm(forms.Form):
+    username = forms.CharField(max_length=15, label="Username")
+
+class ForgotUsernameForm(forms.Form):
+    email = EmailLowField(max_length=254, label="Email")
