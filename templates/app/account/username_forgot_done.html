@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Check Your Inbox!{% endblock %}
+{% block vendor %}
+{% endblock %}
+
+{% block content %}     
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %} 
+<section id="login" class="full-background">
+    <div class="container mt-5 mb-5">
+        <div data-aos="fade-down" class="row text-center">
+           <div>
+            <h1>Check your inbox.</h1>
+            <p>We've emailed you instructions for setting your password. You should receive the email shortly!</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
