@@ -1,3 +1,16 @@
 /* templates/app/contact.html */
 @import 'partials/banner.css';
 @import 'partials/navbar.css';
+
+#contact .msg_textarea{
+    resize: none;
+}
+#contact .widget{
+    position: relative;
+}
+#contact .widget #char_count{
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+}
