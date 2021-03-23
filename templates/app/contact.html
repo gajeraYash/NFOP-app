@@ -4,6 +4,7 @@
 
 {% block vendor %}
 <link rel="stylesheet" href="{% static 'css/app/contact.css' %}" type="text/css" media="screen">
+<script type="text/javascript" src="{% static 'js/app/contact.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -14,7 +15,7 @@
 <section id="contact" class="full-background">
     <div class="container mt-5 mb-5">
         <div class="row text-center">
-            <h1>Contact us</h1>
+            <h1>Contact</h1>
         </div>
         {% if messages %}
         <ul class="messages">
@@ -40,29 +41,32 @@
         <form method="POST" class="row justify-content-center">
             <div class="col-10 col-md-8 col-lg-6">
                 {% csrf_token %}
-                <div class="row">
+                <div class="row my-2">
                     <div class="col">
                         <label for="{{contact_form.full_name.id_for_label}}" class="form-label">Full name</label>
                         <input type="text" class="form-control {% if contact_form.full_name.errors %}is-invalid{% endif %}" name="{{contact_form.full_name.name}}" placeholder="Full name" maxlength="200" {% if contact_form.full_name.value %}value="{{contact_form.full_name.value}}"{% endif %} required="" id="{{contact_form.full_name.id_for_label}}">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row my-2">
                     <div class="col">
                         <label for="{{contact_form.email.id_for_label}}" class="form-label">Email</label>
                         <input type="email" class="form-control {% if contact_form.email.errors %}is-invalid{% endif %}" name="{{contact_form.email.name}}" placeholder="Email" maxlength="200" {% if contact_form.email.value %}value="{{contact_form.email.value}}"{%endif %} required="" id="{{contact_form.email.id_for_label}}">
                         <div for="{{contact_form.email.id_for_label}}" class="form-text">We will never share your email.</div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row my-2">
                     <div class="col">
                         <label for="{{contact_form.subject.id_for_label}}" class="form-label">Subject</label>
                         <input type="text" class="form-control {% if contact_form.subject.errors %}is-invalid{% endif %}" name="{{contact_form.subject.name}}" placeholder="Subject" maxlength="200" {% if contact_form.subject.value %}value="{{contact_form.subject.value}}"{% endif %} required="" id="{{contact_form.subject.id_for_label}}">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row my-2">
                     <div class="col">
                         <label for="{{contact_form.message.id_for_label}}" class="form-label">Message</label>
-                        <textarea class="form-control {% if contact_form.message.errors %}is-invalid{% endif %}" name="{{contact_form.message.name}}" rows="10" maxlength="500" placeholder="Message" required="" id="{{contact_form.message.id_for_label}}">{% if contact_form.message.value %}{{contact_form.message.value}} {% endif %}</textarea>
+                        <div class="widget">
+                            <span id="char_count" class="text-muted user-select-none"></span>
+                            <textarea class="form-control msg_textarea {% if contact_form.message.errors %}is-invalid{% endif %}" name="{{contact_form.message.name}}" rows="10" maxlength="500" onkeyup="countChar(this);" placeholder="Message" required="" id="{{contact_form.message.id_for_label}}">{% if contact_form.message.value %}{{contact_form.message.value}} {% endif %}</textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto">
