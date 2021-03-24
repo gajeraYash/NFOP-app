@@ -13,9 +13,10 @@
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
 <section id="contact" class="full-background">
-    <div class="container mt-5 mb-5">
+    <div data-aos="fade-up" class="container mt-5 mb-5">
         <div class="row text-center">
-            <h1>Contact</h1>
+            <h1>Contact US</h1>
+            <h5>We want to hear from you!</h5>
         </div>
         {% if messages %}
         <ul class="messages">
@@ -70,7 +71,7 @@
                     </div>
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <input type="submit" class="btn btn-outline-dark" value="Sign up">
+                    <input type="submit" class="btn btn-outline-dark" value="Submit">
                 </div>
             </div>
         </form>
