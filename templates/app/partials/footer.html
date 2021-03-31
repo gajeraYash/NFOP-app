@@ -1,3 +1,82 @@
-<nav class="footer">
-    &copy; Newark FOP 
+
+<nav class="footer full-background text-white" style="background-color:black;">
+    <br>
+    <div class="container px-md-2">
+        <div class="row justify-content-center">
+            <style>
+                .ho{color:white;}
+                .line{
+                    padding-bottom:15px;
+                    border-bottom-style:solid;
+                    border-bottom-width: 3.1px;
+                    width: fit-content;
+                }
+                .ho:hover{background-color: white;}
+            </style>
+          <div class="col-md-3">
+            <p class="line fs-5">Page Links</p>
+            <ul class="list-unstyled fs-5"> 
+                <li><a href="{% url 'app:index' %}" class="ho text-decoration-none">Home</a></li>
+                <li><a href="{% url 'app:about' %}" class="ho text-decoration-none">About</a></li>
+                <li><a href="{% url 'app:contact' %}" class="ho text-decoration-none">Contact</a></li>
+                <li><a href="{% url 'app:donate' %}" class="ho text-decoration-none">Donate</a></li>
+                <li><a href="{% url 'app:signup' %}" class="ho text-decoration-none">Sign up</a></li>
+                <li><a href="{% url 'app:login' %}" class="ho text-decoration-none">Login</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 fs-5">
+            <p class="line">News & Updates </p>
+            <ul class="list-unstyled fs-5">
+                <li><a href="" class="ho text-decoration-none">Newark FOP News</a></li>
+                <li><a href="http://www.nj.com" target="_blank" class="ho text-decoration-none">NJ News</a></li>
+                <li><a href="" class="ho text-decoration-none">Calendar</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 fs-5">
+            <p class="line">Contact Us </p>
+            <p>ADDRESS:<br> 51 Rector St,<br> Newark, NJ 07102</p>
+            <p>PHONE: <br>(973)642-0390 </p>
+            <p>FAX: <br>(973)642-6378 </p>
+            <p>EMAIL:</p>
+          </div>
+          <div class="col-md-3 fs-5">
+            <br><br>
+            <img src="/static/assets/logos/plogo.png" class=""
+             style="height:80px;">
+            
+            &copy;
+             <script>document.write(new Date().getFullYear())</script>
+             Newark FOP
+             
+            <!--&copy; Newark FOP 2021-->
+        
+      </div>
+        </div>
+        <br>
+
+    
+      </div>
 </nav>
+
+    <!--<div class="">
+        <div class="col-sm-3">
+            <div>
+            <img src="/static/assets/logos/plogo.png" class="im-fluid foot-image"
+             style="height:60px;">
+            <p>
+            &copy;
+             <script>document.write(new Date().getFullYear())</script>
+             Newark FOP
+             </p>
+            <!--&copy; Newark FOP 2021-->
+          <!--  </div>
+            <div>
+             <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div>
+            Lorem ipsum, dolorbbbbbbb sit amet consectetur adipisicing elit. Explicabo, minima.
+             </div>
+        </div>
+    </div> -->
+
+   
