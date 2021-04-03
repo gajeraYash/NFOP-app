@@ -29,6 +29,9 @@ urlpatterns = [
     # Donate Page
     path('donate', views.donate, name="donate"),
 
+    # social_media Page
+    path('social_media', views.social_media, name="social_media"),
+
     # Members Area Pages
     path('member', views.member, name="member"),
 

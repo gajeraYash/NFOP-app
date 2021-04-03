@@ -27,6 +27,10 @@ def test(request):
 def about(request):
     return render(request,"app/about.html")
 
+def social_media(request):
+    return render(request,"app/social_media.html")
+
+
 def donate(request):
     return render(request, "app/donate.html")
 
