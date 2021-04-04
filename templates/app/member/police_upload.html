@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Member Only{% endblock %}
+
+{% block vendor %}
+{% endblock %}
+
+{% block content %}
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %}
+<section class="upload full-background" id="upload">
+    <div class="mb-3">
+        <form method="post" enctype="multipart/form-data"></form>
+            <label for="formFile" class="form-label">Default file input example</label>
+            <input class="form-control" type="file" id="formFile">
+        </form>
+    </div>
+</section>
+{% endblock %}
