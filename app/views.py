@@ -35,6 +35,7 @@ def contact(request):
         contact_form = FeedbackContactForm(request.POST)
         if contact_form.is_valid():
             contact_form.save()
+            admins = [reciever for reciever in (User.objects.filter(groups__name='contactRequest').values_list('email', flat=True))]
             full_name = request.POST.get('full_name', 'NULL')
             email = request.POST.get('email', 'NULL')
             subject = request.POST.get('subject', 'NULL')
@@ -54,7 +55,7 @@ def contact(request):
                 email_subject,
                 text_content,
                 settings.EMAIL_HOST_USER,
-                ['gajera.yash98@gmail.com']
+                admins
             )
             email.attach_alternative(html_content, "text/html")
             email.send()
@@ -180,5 +181,16 @@ def username_forgot(request):
 
 @login_required
 def member(request):
-    return render(request, "app/member.html")
+    return render(request, 'app/member/member.html')
     
+@login_required
+def upload(request):
+    return render(request, 'app/member/upload.html')
+
+@login_required
+def upload_member(request):
+    return render(request, 'app/member/member_upload.html')
+    
+@login_required
+def upload_police(request):
+    return render(request, 'app/member/police_upload.html')
