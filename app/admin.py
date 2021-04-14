@@ -44,8 +44,14 @@ class FeedbackContactAdmin(admin.ModelAdmin):
     search_fields = ['full_name', 'email']
     date_hierarchy = 'date'
 
+class LinksAdmin(admin.ModelAdmin):
+    list_display = ['name', 'link']
+    list_filter = ['name']
+    search_fields = ['name']
+    
 # Register your models here.
 admin.site.register(UserProfile,UserProfileAdmin)
 admin.site.register(UserStatus,UserStatusAdmin)
 admin.site.register(MailList,MailListAdmin)
 admin.site.register(FeedbackContact,FeedbackContactAdmin)
+admin.site.register(Links,LinksAdmin)

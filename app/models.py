@@ -82,3 +82,11 @@ class FeedbackContact(models.Model):
 
     def __str__(self):
         return self.full_name + ' - ' + self.subject
+
+class Links(models.Model):
+    name = models.CharField(max_length=200)
+    link = models.TextField(max_length=500)
+
+    class Meta:
+        verbose_name = 'Link'
+        verbose_name_plural = 'Links'
