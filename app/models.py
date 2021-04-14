@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
 from datetime import datetime
+from django.core.validators import FileExtensionValidator
 
 # Create your functions here.
 
@@ -103,21 +104,27 @@ class FeedbackContact(models.Model):
 
 class PoliceUpload(models.Model):
     user = models.ForeignKey(User, on_delete=CASCADE)
-    form = models.FileField(upload_to=upload_path)
+    form = models.FileField(upload_to=upload_path, validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = "Police Upload"
         verbose_name_plural = "Police Uploads"
+    
+    def __str__(self):
+        return self.user.username + ' - ' + str('{0}'.format(self.date.strftime("%m/%d/%Y")))
 
 class MemberUpload(models.Model):
     user = models.ForeignKey(User, on_delete=CASCADE)
     form = models.FileField(upload_to=upload_path)
-    frontDL = models.FileField(upload_to=upload_path)
-    backDL = models.FileField(upload_to=upload_path)
-    carReg = models.FileField(upload_to=upload_path)
+    frontDL = models.ImageField(upload_to=upload_path)
+    backDL = models.ImageField(upload_to=upload_path)
+    carReg = models.ImageField(upload_to=upload_path)
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = "Member Upload"
         verbose_name_plural = "Member Uploads"
+
+    def __str__(self):
+        return self.user.username + ' - ' + str('{0}'.format(self.date.strftime("%m/%d/%Y")))
