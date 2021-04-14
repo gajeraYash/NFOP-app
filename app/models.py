@@ -128,3 +128,10 @@ class MemberUpload(models.Model):
 
     def __str__(self):
         return self.user.username + ' - ' + str('{0}'.format(self.date.strftime("%m/%d/%Y")))
+class Links(models.Model):
+    name = models.CharField(max_length=200)
+    link = models.TextField(max_length=500)
+
+    class Meta:
+        verbose_name = 'Link'
+        verbose_name_plural = 'Links'

@@ -67,6 +67,11 @@ class UploadAdmin(admin.ModelAdmin):
     get_user_lastname.admin_order_field  = 'user__last_name'
     get_user_lastname.short_description = 'Last name'
 
+class LinksAdmin(admin.ModelAdmin):
+    list_display = ['name', 'link']
+    list_filter = ['name']
+    search_fields = ['name']
+    
 # Register your models here.
 admin.site.register(UserProfile,UserProfileAdmin)
 admin.site.register(UserStatus,UserStatusAdmin)
@@ -74,3 +79,4 @@ admin.site.register(MailList,MailListAdmin)
 admin.site.register(FeedbackContact,FeedbackContactAdmin)
 admin.site.register(PoliceUpload, UploadAdmin)
 admin.site.register(MemberUpload, UploadAdmin)
+admin.site.register(Links,LinksAdmin)
