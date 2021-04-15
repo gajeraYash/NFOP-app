@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}social_media{% endblock %}
+{% block vendor %}
+<link rel="stylesheet" href="{% static 'css/app/events.css' %}" type="text/css" media="screen">
+{% endblock %}
+{% block content %}
+<!-- Top-Banner -->
+{% include "app/partials/banner.html" %}
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %}
+<section id="events">
+   
+  <div>
+
+  </div>
+</section>
+{% endblock %}
