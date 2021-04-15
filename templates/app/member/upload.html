@@ -10,23 +10,23 @@
 {% include "app/partials/navbar.html" with user=user %}
 <section class="upload full-background" id="upload">
     <div class="container">
-        <div class="row g-0 justify-content-center">
-            <div class="card w-75 text-center">
+        <div class="row g-0 justify-content-center my-5 py-5">
+            <div class="card w-75 text-center my-5">
                 <div class="card-header">
                     <h5 class="card-title">Member</h5>
                 </div>
                 <div class="card-body">
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Upload</a>
+                    <a href="{% url 'app:upload_member' %}" class="btn btn-primary">Upload</a>
                 </div>
             </div>
-            <div class="card w-75 text-center">
+            <div class="card w-75 text-center my-5">
                 <div class="card-header">
                     <h5 class="card-title">Police</h5>
                 </div>
                 <div class="card-body">
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Upload</a>
+                    <a href="{% url 'app:upload_police' %}" class="btn btn-primary">Upload</a>
                 </div>
             </div>
         </div>
