@@ -15,7 +15,7 @@ def upload_path(instance, filename):
         modelInfo = "member"
     date = _now.strftime("%Y-%m-%d")
     time = _now.strftime("%I.%M.%S.%p")
-    return 'uploads/{0}/{1}/{2}/{3}/{4}'.format(modelInfo,instance.user.username, date, time, filename)
+    return '{0}/{1}/{2}_{3}/{4}'.format(instance.user.username,modelInfo, date, time, filename)
 
 # Create your models here.
 class UserProfile (models.Model):
