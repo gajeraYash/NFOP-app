@@ -11,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'app:index' %}"><b>Home</b></a>
+                    <a class="nav-link" href="{% url 'app:index' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'app:about' %}"><b>About</b></a>
+                    <a class="nav-link" href="{% url 'app:about' %}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'app:contact' %}"><b>Contact</b></a>
+                    <a class="nav-link" href="{% url 'app:contact' %}">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'app:donate' %}"><b>Donate</b></a>
+                    <a class="nav-link" href="{% url 'app:donate' %}">Donate</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'app:events' %}"><b>Events</b></a>
@@ -29,18 +29,23 @@
             </ul>
             <ul class="navbar-nav me-2">
                 {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'app:member' %}"><b>Members</b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'app:logout' %}"><b>Logout</b></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{user.first_name}} {{user.last_name}}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'app:member' %}">Member Info</a></li>
+                      <li><a class="dropdown-item" href="{% url 'app:upload' %}">Upload</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="{% url 'app:logout' %}">Logout</a></li>
+                    </ul>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'app:signup' %}"><b>Sign up</b></a>
+                    <a class="nav-link" href="{% url 'app:signup' %}">Sign up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'app:login' %}"><b>Login</b></a>
+                    <a class="nav-link" href="{% url 'app:login' %}">Login</a>
                 </li>
                 {% endif %}
             </ul>

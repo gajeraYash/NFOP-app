@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
-from app.models import FeedbackContact, MailList, UserProfile
+from app.models import FeedbackContact, MailList, PoliceUpload, UserProfile
 
 class UsernameLowField(forms.CharField):
     def to_python(self, value):
@@ -85,3 +85,9 @@ class ForgotPasswordForm(forms.Form):
 
 class ForgotUsernameForm(forms.Form):
     email = EmailLowField(max_length=254, label="Email")
+
+
+class UploadPoliceForm(forms.ModelForm):
+    class Meta:
+        model = PoliceUpload
+        fields = ('form',)

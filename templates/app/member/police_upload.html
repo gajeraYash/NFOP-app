@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Member Only{% endblock %}
+
+{% block vendor %}
+{% endblock %}
+
+{% block content %}
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %}
+<section class="upload full-background" id="upload">
+    <div class="mb-3">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="{{form.form.id_for_label}}" class="form-label">Default file input example</label>
+            <input class="form-control" name="{{form.form.name}}"type="file" accept=".pdf" required="" id="{{form.form.id_for_label}}">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <input type="submit" class="btn btn-outline-dark" value="Upload">
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
