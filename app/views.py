@@ -193,4 +193,13 @@ def upload_member(request):
     
 @login_required
 def upload_police(request):
-    return render(request, 'app/member/police_upload.html')
+    if request.method == "POST":
+        uploadForm = UploadPoliceForm(request.POST, request.FILES)
+        if uploadForm.is_valid():
+            form = uploadForm.save(commit=False)
+            form.user = request.user
+            form.save()
+            messages.success(request, 'Contact form has been submitted.')
+    else:
+        uploadForm = UploadPoliceForm()
+    return render(request, 'app/member/police_upload.html', {'form': uploadForm})
