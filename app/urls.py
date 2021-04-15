@@ -31,6 +31,9 @@ urlpatterns = [
 
     # Members Area Pages
     path('member', views.member, name="member"),
+    path('member/upload', views.upload, name="upload"),
+    path('member/upload/member', views.upload_member, name="upload_member"),
+    path('member/upload/police', views.upload_police, name="upload_police"),
 
     # Account Changes Pages
     path('password/forgot', views.password_forgot, name="forgot_password"),
