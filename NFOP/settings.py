@@ -43,11 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'storages',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,20 +80,28 @@ WSGI_APPLICATION = 'NFOP.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# Temp SQL DB
-# 'ENGINE': 'django.db.backends.sqlite3',
-# 'NAME': BASE_DIR / 'db.sqlite3',
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT', cast=int),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config('DB_NAME'),
+            'HOST': config('DB_HOST'),
+            'PORT': config('DB_PORT', cast=int),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+        }
+    }
+
+
+
 
 
 
@@ -130,22 +138,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_ROOT = BASE_DIR.joinpath('static/files')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
-
-#Media files(User uploaded files)
-
-MEDIA_URL= '/media/'
-MEDIA_ROOT = BASE_DIR.joinpath('media')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 # Email Settings
 
 EMAIL_HOST = config('EMAIL_HOST')
@@ -153,3 +145,30 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
+
+# AWS Settings
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET')
+AWS_STORAGE_BUCKET_NAME = config('AWS_BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+AWS_STATIC_LOCATION = 'static'
+STATICFILES_STORAGE = 'NFOP.storages.StaticStorage'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_STATIC_LOCATION}/'
+STATIC_ROOT = BASE_DIR.joinpath('static/files')
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+
+#Media files(User uploaded files)
+DEFAULT_FILE_STORAGE = 'NFOP.storages.MediaStorage'
+MEDIA_URL= '/media/'
+MEDIA_ROOT = BASE_DIR.joinpath('media')
+
