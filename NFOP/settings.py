@@ -139,12 +139,14 @@ USE_TZ = True
 
 
 # Email Settings
-
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_HOST = config('EMAIL_HOST')
+    EMAIL_PORT = config('EMAIL_PORT', cast=int)
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
 
 # AWS Settings
@@ -173,7 +175,9 @@ STATICFILES_DIRS = [
 ]
 
 #Media files(User uploaded files)
-DEFAULT_FILE_STORAGE = 'NFOP.storages.MediaStorage'
+if not (DEBUG):
+    DEFAULT_FILE_STORAGE = 'NFOP.storages.MediaStorage'
+
 MEDIA_URL= '/media/'
 MEDIA_ROOT = BASE_DIR.joinpath('media')
 
