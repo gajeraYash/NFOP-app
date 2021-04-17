@@ -160,8 +160,13 @@ AWS_S3_OBJECT_PARAMETERS = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 AWS_STATIC_LOCATION = 'static'
-STATICFILES_STORAGE = 'NFOP.storages.StaticStorage'
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_STATIC_LOCATION}/'
+
+if DEBUG:
+    STATIC_URL = '/static/'
+else: 
+    STATICFILES_STORAGE = 'NFOP.storages.StaticStorage'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_STATIC_LOCATION}/'
+    
 STATIC_ROOT = BASE_DIR.joinpath('static/files')
 STATICFILES_DIRS = [
     STATIC_DIR,
