@@ -50,9 +50,30 @@
             </div>
         </div>
     </div>
+    <!---------------------------------------------->
+    <div class="carousel slide carousel-fade" data-bs-pause="false" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="4000">
+            <img src="{% static 'assets/ewrpdpics/ewrpd.jpeg' %}" class="d-block w-100" alt="...">
+          </div>
+          {% for n in numIMG %}
+          {% with n|stringformat:"e" as imgID %}
+          {% with 'assets/ewrpdpics/ewrpd'|add:imgID|add:'.jpeg' as slideIMG %}
+          <div class="carousel-item" data-bs-interval="4000">
+            <img src="{% static slideIMG %}" class="d-block w-100" alt="...">
+          </div>
+          {% endwith %}
+          {% endwith %}
+          {% endfor %}
+        </div>
+
+        <div>
+            <p>still not loading images</p>
+            <img src="{static 'assets/logos/banner.jpg' %}" alt="">
+          </div>
 
     <!--Carousel-->
-    <style>
+  <!--  <style>
         .slides>div{
           flex-shrink: 0;
           width:100%;
@@ -78,7 +99,7 @@
             </div>
           </div>
         </div>
-  
+    -->
     <!--carousel-->
 
     <!--Static gallery-->
