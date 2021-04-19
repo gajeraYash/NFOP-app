@@ -13,12 +13,12 @@
                 }
                 .ho:hover{background-color: white;}
             </style>
-          <div  class="col-md-3 d-none d-sm-block">
+          <div  class="col-md-3 ">
            
             <div id="calendar"></div>
             <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
           </div>
-          <div class="col-md-3 d-none d-sm-block">
+          <div class="col-md-3 ">
             <p class="line fs-5">Page Links</p>
             <ul class="list-unstyled fs-5"> 
                 <li><a href="{% url 'app:index' %}" class="ho text-decoration-none">Home</a></li>
@@ -29,7 +29,7 @@
                 <li><a href="{% url 'app:login' %}" class="ho text-decoration-none">Login</a></li>
             </ul>
           </div>
-          <div class="col-md-3 fs-5 d-none d-sm-block">
+          <div class="col-md-3 fs-5 ">
             <p class="line">News & Updates </p>
             <ul class="list-unstyled fs-5">
                 <li><a href="" class="ho text-decoration-none">Newark FOP News</a></li>
@@ -37,7 +37,7 @@
                 <li><a href="" class="ho text-decoration-none">Calendar</a></li>
             </ul>
           </div>
-          <div class="col-md-3 fs-5 d-none d-sm-block">
+          <div class="col-md-3 fs-5 ">
             <p class="line">Contact Us </p>
             <p>ADDRESS:<br> 51 Rector St,<br> Newark, NJ 07102</p>
             <p>PHONE: <br>(973)642-0390 </p>
@@ -47,14 +47,18 @@
       
           <div class="col-md-3 fs-5">
             <br>
+            <div class="fopLogo">
             <img src="/static/assets/logos/plogo.png" class=""
              style="height:80px;">
-            
             &copy;
              <script>document.write(new Date().getFullYear())</script>
              Newark FOP
+            </div> 
+            <div class="RUlogo">
+              <img src="/static/assets/misc/ru-cs logo.png" alt="">
+            </div>
 
-      </div>
+          </div>
         </div>
         <br>
 
