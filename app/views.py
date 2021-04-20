@@ -21,15 +21,6 @@ from django.utils.encoding import force_bytes
 def index(request):
     return render(request,"app/index.html", {'numIMG' : range(1,11)})
 
-def test(request):
-    return render(request,"app/index.html") #Replace Under The Quotes for Custom Test HTML Page
-
-def about(request):
-    return render(request,"app/about.html")
-
-def donate(request):
-    return render(request, "app/donate.html")
-
 def contact(request):
     if request.method == 'POST':
         contact_form = FeedbackContactForm(request.POST)
@@ -199,7 +190,20 @@ def upload_police(request):
             form = uploadForm.save(commit=False)
             form.user = request.user
             form.save()
-            messages.success(request, 'Contact form has been submitted.')
+            messages.success(request, 'Files have been uploaded successfully')
     else:
         uploadForm = UploadPoliceForm()
     return render(request, 'app/member/police_upload.html', {'form': uploadForm})
+
+@login_required
+def upload_member(request):
+    if request.method == "POST":
+        uploadForm = UploadMemberForm(request.POST, request.FILES)
+        if uploadForm.is_valid():
+            form = uploadForm.save(commit=False)
+            form.user = request.user
+            form.save()
+            messages.success(request, 'Files have been uploaded successfully')
+    else:
+        uploadForm = UploadMemberForm()
+    return render(request, 'app/member/member_upload.html', {'form': uploadForm})
