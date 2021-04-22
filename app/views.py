@@ -175,8 +175,10 @@ def member(request):
     return render(request, 'app/member/member.html')
     
 @login_required
-def upload(request):
-    return render(request, 'app/member/upload.html')
+def forms(request):
+    formMember = DownloadForms.objects.filter(group='MEMB')
+    formPolice = DownloadForms.objects.filter(group='POLI')
+    return render(request, 'app/member/forms.html',{'formMember': formMember, 'formPolice': formPolice })
 
 @login_required
 def upload_member(request):
