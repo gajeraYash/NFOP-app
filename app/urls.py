@@ -2,6 +2,8 @@ from django.urls import path
 from django.urls.base import reverse_lazy
 from . import views
 from django.contrib.auth import views as auth_views
+from django.views.generic import TemplateView
+from django.conf import settings
 
 
 app_name = 'app'  # here for namespacing of urls.
@@ -10,11 +12,8 @@ urlpatterns = [
     # Index Page (HOME)
     path('', views.index, name="index"),
 
-    # Test Page
-    path('test/', views.test, name="test"),
-    
     # About Page
-    path('about', views.about, name="about"),
+    path('about', TemplateView.as_view(template_name='app/about.html'), name="about"),
     
     # Contact Us Page
     path('contact', views.contact, name="contact"),
@@ -27,11 +26,11 @@ urlpatterns = [
     path('logout', views.logout, name="logout"),
 
     # Donate Page
-    path('donate', views.donate, name="donate"),
+    path('donate', TemplateView.as_view(template_name='app/donate.html'), name="donate"),
 
     # Members Area Pages
     path('member', views.member, name="member"),
-    path('member/upload', views.upload, name="upload"),
+    path('member/forms', views.forms, name="forms"),
     path('member/upload/member', views.upload_member, name="upload_member"),
     path('member/upload/police', views.upload_police, name="upload_police"),
 
@@ -44,3 +43,6 @@ urlpatterns = [
     
 ]
 
+if settings.DEBUG:
+    # Test Page
+    urlpatterns.append(path('test/', TemplateView.as_view(template_name='app/index.html'), name="test"))

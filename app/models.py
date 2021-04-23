@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
 from datetime import datetime
 from django.core.validators import FileExtensionValidator
+from NFOP.storages import FormStorage
 
 # Create your functions here.
 
@@ -16,6 +17,14 @@ def upload_path(instance, filename):
     date = _now.strftime("%Y-%m-%d")
     time = _now.strftime("%I.%M.%S.%p")
     return '{0}/{1}/{2}_{3}/{4}'.format(instance.user.username,modelInfo, date, time, filename)
+
+def form_storage_path(instance, filename):
+    _now = datetime.now()
+    ext = filename.split('.')[-1]
+    name = filename.split('.')[0]
+    modelInfo = instance.get_group_display()
+    date = _now.strftime("%Y-%m-%d")
+    return '{0}/{1}_{2}.{3}'.format(modelInfo, name, date, ext)
 
 # Create your models here.
 class UserProfile (models.Model):
@@ -42,19 +51,18 @@ class UserProfile (models.Model):
 
 class UserStatus(models.Model):
     UNVERIFIED = 'UVER'
-    VERIFIED = 'VERI'
-    ACTIVE = 'ACTI'
+    MEMBER = 'MEMB'
     POLICE = 'POLI'
 
     STATUS_CHOICES = [
         (UNVERIFIED, 'Unverified'),
-        (VERIFIED, 'Verified'),
-        (ACTIVE, 'Active'),
+        (MEMBER, 'Member'),
         (POLICE, 'Police'),
     ]
         
     user = models.OneToOneField(User, on_delete=CASCADE)
     status = models.CharField(choices=STATUS_CHOICES, default=UNVERIFIED, max_length=4)
+    modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.user.username + ' is a ' +self.status + ' status.'
@@ -105,7 +113,7 @@ class FeedbackContact(models.Model):
 class PoliceUpload(models.Model):
     user = models.ForeignKey(User, on_delete=CASCADE)
     form = models.FileField(upload_to=upload_path, validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = "Police Upload"
@@ -120,7 +128,7 @@ class MemberUpload(models.Model):
     frontDL = models.ImageField(upload_to=upload_path)
     backDL = models.ImageField(upload_to=upload_path)
     carReg = models.ImageField(upload_to=upload_path)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = "Member Upload"
@@ -135,3 +143,25 @@ class Links(models.Model):
     class Meta:
         verbose_name = 'Link'
         verbose_name_plural = 'Links'
+    
+    def __str__(self):
+        return self.name
+
+class DownloadForms(models.Model):
+    MEMBER = 'MEMB'
+    POLICE = 'POLI'
+
+    GROUP_CHOICE = [
+        (MEMBER, 'Member'),
+        (POLICE, 'Police'),
+    ]
+    group = models.CharField(choices=GROUP_CHOICE, primary_key=True, max_length=4)
+    form = models.FileField(storage=FormStorage(),upload_to=form_storage_path)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Download Form'
+        verbose_name_plural = 'Download Forms'
+
+    def __str__(self):
+        return self.group + ' - ' + str(self.date.strftime("%Y-%m-%d"))

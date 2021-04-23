@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Member Only{% endblock %}
+
+{% block vendor %}
+{% endblock %}
+
+{% block content %}
+<!-- Navbar -->
+{% include "app/partials/navbar.html" with user=user %}
+<section class="forms full-background" id="forms">
+    <div class="container">
+        <div class="row g-0 justify-content-center my-5 py-5">
+            <div class="card w-75 text-center my-5">
+                <div class="card-header">
+                    <h5 class="card-title">Member</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="row">
+                        <div class="col">
+                            <a href="{% url 'app:upload_member' %}" class="btn btn-outline-dark">Upload</a>
+                        </div>
+                        {% if formMember %}
+                        <div class="col">
+                            <a href="{{formMember.0.form.url}}" class="btn btn-outline-dark" download="">Download</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="card w-75 text-center my-5">
+                <div class="card-header">
+                    <h5 class="card-title">Police</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="row">
+                        <div class="col">
+                            <a href="{% url 'app:upload_police' %}" class="btn btn-outline-dark">Upload</a>
+                        </div>
+                        {% if formPolice %}
+                        <div class="col">
+                            <a href="{{formPolice.0.form.url}}" class="btn btn-outline-dark" download>Download</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

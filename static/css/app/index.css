@@ -74,8 +74,10 @@
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
 }
 
-#home .links-container{
-  padding: 10px 50px;
+#home .video-wrapper{
+  height: auto;
+  width: 100%;
+  background-color: rgb(247, 246, 244);
 }
 
 @media (max-width: 767px) {
