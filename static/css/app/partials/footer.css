@@ -1,4 +1,4 @@
-nav#footer {
+#footer {
     text-align: left;
     background-color:var(--main-background);
     color: white;
@@ -9,3 +9,11 @@ nav#footer {
     width: 100%;
     font-size:1.2rem;
   }
+#footer .links-container .foot {
+  display: inline-block; 
+  line-height: 70px; 
+  vertical-align: top 
+}
+#footer .links-container .footer-img{
+  display: inline-block; 
+} 
