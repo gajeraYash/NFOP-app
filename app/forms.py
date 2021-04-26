@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
-from app.models import FeedbackContact, MailList, PoliceUpload, UserProfile
+from app.models import FeedbackContact, MailList, MemberUpload, PoliceUpload, UserProfile
 
 class UsernameLowField(forms.CharField):
     def to_python(self, value):
@@ -13,6 +13,7 @@ class UsernameLowField(forms.CharField):
 class EmailLowField(forms.EmailField):
     def to_python(self, value):
         return value.lower()
+
 class SignupForm(UserCreationForm):
     first_name = forms.CharField(max_length=35, required=True)
     last_name = forms.CharField(max_length=35, required=True)
@@ -43,7 +44,6 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('address_1', 'address_2', 'city', 'state', 'zip_code', 'phone_number')
-
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=15, min_length=3)
@@ -86,8 +86,14 @@ class ForgotPasswordForm(forms.Form):
 class ForgotUsernameForm(forms.Form):
     email = EmailLowField(max_length=254, label="Email")
 
-
 class UploadPoliceForm(forms.ModelForm):
+    
     class Meta:
         model = PoliceUpload
         fields = ('form',)
+
+class UploadMemberForm(forms.ModelForm):
+
+    class Meta:
+        model = MemberUpload
+        fields = ('form','frontDL', 'backDL','carReg',)

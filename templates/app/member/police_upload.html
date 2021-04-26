@@ -9,15 +9,48 @@
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
 <section class="upload full-background" id="upload">
-    <div class="mb-3">
-        <form method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="info pt-5 text-center">
+            <h1>Police Upload</h1>
+            <p>Active police officers should upload filled out form.</p>
+        </div>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success text-center" role="alert">
+                <strong{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</strong>
+            </div>
+            {% endfor %}
+        {% else %}
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-warning" role="alert">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form method="post" class="row justify-content-center" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="{{form.form.id_for_label}}" class="form-label">Default file input example</label>
-            <input class="form-control" name="{{form.form.name}}"type="file" accept=".pdf" required="" id="{{form.form.id_for_label}}">
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <input type="submit" class="btn btn-outline-dark" value="Upload">
+                <div class="col-lg-8 col-md-6">
+                    <div class="row g-0 py-2">
+                        <label for="{{form.form.id_for_label}}" class="form-label">Form</label>
+                        <input class="form-control" name="{{form.form.name}}"type="file" accept=".pdf" required="" id="{{form.form.id_for_label}}">
+                    </div>
+                    <div class="row g-0 py-4 justify-content-between">
+                        <div class="d-grid col-md-4 col-sm-8 col-6 mx-auto">
+                            <input type="submit" class="btn btn-outline-dark" value="Upload">
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
+        {% endif %}
     </div>
 </section>
 {% endblock %}
