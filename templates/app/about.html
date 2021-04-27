@@ -12,9 +12,9 @@
 {% include "app/partials/navbar.html" with user=user %}
 <section id="about" class="full-background">
   <div class="about-info text-center">
-    <div class="container">
+    <div class="container px-3">
       <h1>Newark Fraternal Order of Police</h1>
-      <p class="lead">The Newark Fraternal Order of Police Lodge #12 is an active Union Office that represents about 
+      <p class="lead py-1">The Newark Fraternal Order of Police Lodge #12 is an active Union Office that represents about 
         850 active police officers and over 700 retirees. We protect our officers rights in incidents
         where an officer has taken legal action while on or off duty. We negotiate for their benefits,
         salaries and work schedules. Along with just being an active lodge. We also have great support 
@@ -24,113 +24,77 @@
     </div>
   </div>
   <div class="team-info text-center">
-    <h2>Meet Our Team</h2>
+    <h2 class="pt-4 pb-2 display-5">Meet our team</h2>
       <div class="row g-0 justify-content-center">
-        <div class="card shadow align-items-center" style="width: 25rem;">
+        <div class="card shadow py-2 align-items-center" style="width: 25rem;">
           <img src="{% static 'assets/team/pres.jpg' %}" class="card-img-top" style="object-position: 0 40%;" alt="President">
           <div class="card-body">
             <h5 class="card-title">James Stewart Jr.</h5>
             <p class="text-muted">President</p>
             <p>stewee68@comcast.net</p>
             <p>732-991-0689</p>
-            <a href="mailto:stewee68@comcast.net" class="btn btn-primary">Contact</a>
+            <a href="mailto:stewee68@comcast.net" class="btn btn-outline-primary">Contact</a>
           </div>
         </div>
-        <div class="card shadow align-items-center" style="width: 25rem;">
+        <div class="card shadow py-2 align-items-center" style="width: 25rem;">
           <img src="{% static 'assets/team/vp.jpg' %}" class="card-img-top" style="object-position: 0 30%;" alt="President">
           <div class="card-body">
             <h5 class="card-title">Walter Melvin</h5>
             <p class="text-muted">Vice President</p>
             <p>wal6425@aol.com</p>
             <p>973-642-0390</p>
-            <a href="mailto:wal6425@aol.com" class="btn btn-primary">Contact</a>
+            <a href="mailto:wal6425@aol.com" class="btn btn-outline-primary">Contact</a>
           </div>
         </div>
       </div>
       <div class="row g-0 justify-content-center">
-        <div class="card shadow align-items-center" style="width: 25rem;">
+        <div class="card shadow py-2  align-items-center" style="width: 25rem;">
           <img src="{% static 'assets/team/tres.jpg' %}" class="card-img-top" style="object-position: 0 30%;" alt="President">
           <div class="card-body">
             <h5 class="card-title">Ariel Cortez</h5>
             <p class="text-muted">Treasurer</p>
             <p>acortez@newarkfop.com</p>
             <p>732-642-0390</p>
-            <a href="mailto:acortez@newarkfop.com" class="btn btn-primary">Contact</a>
+            <a href="mailto:acortez@newarkfop.com" class="btn btn-outline-primary">Contact</a>
           </div>
         </div>
-        <div class="card shadow align-items-center" style="width: 25rem;">
+        <div class="card shadow py-2 align-items-center" style="width: 25rem;">
           <img src="{% static 'assets/team/sec.jpg' %}" class="card-img-top" style="object-position: 0 30%;" alt="President">
           <div class="card-body">
             <h5 class="card-title">Daniel P. Eames</h5>
             <p class="text-muted">Secretary</p>
             <p>nwrkfop@aol.com</p>
             <p>732-642-0390</p>
-            <a href="mailto:nwrkfop@aol.com" class="btn btn-primary">Contact</a>
+            <a href="mailto:nwrkfop@aol.com" class="btn btn-outline-primary">Contact</a>
           </div>
         </div>
-        <div class="card shadow align-items-center" style="width: 25rem;">
+        <div class="card shadow py-2 align-items-center" style="width: 25rem;">
           <img src="{% static 'assets/team/om.jpg' %}" class="card-img-top" style="object-position: 0 50%;" alt="President">
           <div class="card-body">
             <h5 class="card-title">Robert D'Angelo</h5>
             <p class="text-muted">Office Manager</p>
             <p>nwrkfop@aol.com</p>
             <p>732-642-0390</p>
-            <a href="mailto:nwrkfop@aol.com" class="btn btn-primary">Contact</a>
+            <a href="mailto:nwrkfop@aol.com" class="btn btn-outline-primary">Contact</a>
           </div>
         </div>
     </div>
   </div>
-
-  <!-- <div class="column">
-    <div class="card">
-      <img src="{% static 'assets/team/vp.jpg' %}" alt="James" style="padding:0px 20px;height: 300px; width:100%;object-fit:cover; object-position: 20% 20%;">
-      <div class="container">
-        <h2>Walter Melvin</h2>
-        <p class="title">Vice President</p>
-        <p>wal6425@aol.com</p>
-        <p>973-642-0390</p>
-        <p><button class="button">Contact</button></p>
+  <div class="container">
+    <hr class="my-5">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="..." class="d-block w-100" alt="...">
+        </div>
       </div>
     </div>
   </div>
-  
-  <div class="column">
-    <div class="card">
-      <img src="{% static 'assets/team/tres.jpg' %}" alt="James" style="padding:0px 20px;height: 300px; width:100%;object-fit:cover; object-position: 20% 20%;">
-      <div class="container">
-        <h2>Ariel Cortez</h2>
-        <p class="title">Treasurer</p>
-        <p>acortez@newarkfop.com</p>
-        <p>973-642-0390</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="{% static 'assets/team/sec.jpg' %}" alt="James" style="padding:0px 20px;height: 300px; width:100%;object-fit:cover; object-position: 20% 20%;">
-      <div class="container">
-        <h2>Daniel P. Eames</h2>
-        <p class="title">Secretary</p>
-        <p>nwrkfop@aol.com</p>
-        <p>973-642-0390</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="{% static 'assets/team/om.jpg' %}" alt="James" style="padding:0px 20px;height: 300px; width:100%;object-fit:cover; object-position: 20% 40%;">
-      <div class="container">
-        <h2>Robert D'Angelo</h2>
-        <p class="title">Office Manager</p>
-        <p>nwrkfop@aol.com</p>
-        <p>973-642-0390</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div> -->
 </section>
 {% endblock %}
