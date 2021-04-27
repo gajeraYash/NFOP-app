@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['newarkfop12.com','nfop-app.herokuapp.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['www.newarkfop12.com','nfop-app.herokuapp.com','127.0.0.1','localhost']
 
 
 # Application definition
