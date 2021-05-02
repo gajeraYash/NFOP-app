@@ -21,6 +21,9 @@ from django.utils.encoding import force_bytes
 def index(request):
     return render(request,"app/index.html", {'numIMG' : range(1,11)})
 
+def events(request):
+    return render(request,"app/events.html")
+
 def contact(request):
     if request.method == 'POST':
         contact_form = FeedbackContactForm(request.POST)
