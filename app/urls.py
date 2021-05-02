@@ -31,6 +31,9 @@ urlpatterns = [
     # Events Page
     path('events', views.events, name="events"),
 
+    # Subscribe 
+    path('subscribe', views.subscribe_email, name='subscribe_email'),
+
     # Members Area Pages
     path('member', views.member, name="member"),
     path('member/forms', views.forms, name="forms"),
@@ -47,5 +50,5 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    # Test Page
+    # Test Page (Replace Template name with custom html to view the page)
     urlpatterns.append(path('test/', TemplateView.as_view(template_name='app/index.html'), name="test"))
