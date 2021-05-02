@@ -27,6 +27,7 @@ def contact(request):
         if contact_form.is_valid():
             contact_form.save()
             admins = [reciever for reciever in (User.objects.filter(groups__name='contactRequest').values_list('email', flat=True))]
+            print(admins)
             full_name = request.POST.get('full_name', 'NULL')
             email = request.POST.get('email', 'NULL')
             subject = request.POST.get('subject', 'NULL')
@@ -45,8 +46,9 @@ def contact(request):
             email = EmailMultiAlternatives(
                 email_subject,
                 text_content,
-                settings.EMAIL_HOST_USER,
-                admins
+                'NewarkFOP12 <{0}>'.format(settings.EMAIL_HOST_USER),
+                admins,
+                reply_to=[email]
             )
             email.attach_alternative(html_content, "text/html")
             email.send()
@@ -113,7 +115,7 @@ def password_forgot(request):
             associated_users = User.objects.filter(username=data)
             if associated_users.exists():
                 for user in associated_users:
-                    subject = "Reset Password - NewarkFOP"
+                    subject = "Reset Password - NewarkFOP12"
                     email_template_name = "email/reset_password.html"
                     textemail_template_name = "email/reset_password.txt"
                     context = {
@@ -129,7 +131,7 @@ def password_forgot(request):
                     template_email = EmailMultiAlternatives(
                         subject,
                         text_content,
-                        settings.EMAIL_HOST_USER,
+                        'Do Not Reply <{0}>'.format(settings.EMAIL_HOST_USER),
                         [user.email]
                     )
                     template_email.attach_alternative(html_content, "text/html")
@@ -147,7 +149,7 @@ def username_forgot(request):
             data = form.cleaned_data['email'].lower()
             user = User.objects.filter(email=data)
             if user.exists():
-                subject = "Forgot Username - NewarkFOP"
+                subject = "Forgot Username - NewarkFOP12"
                 email_template_name = "email/forgot_username.html"
                 textemail_template_name = "email/forgot_username.txt"
                 context = {
@@ -159,7 +161,7 @@ def username_forgot(request):
                 template_email = EmailMultiAlternatives(
                     subject,
                     text_content,
-                    settings.EMAIL_HOST_USER,
+                    'Do Not Reply <{0}>'.format(settings.EMAIL_HOST_USER),
                     [user[0].email]
                 )
                 template_email.attach_alternative(html_content, "text/html")
