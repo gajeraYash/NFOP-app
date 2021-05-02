@@ -1,19 +1,18 @@
-#footer {
+.footer{
     text-align: left;
-    background-color:var(--main-background);
+    background-color:#343434;
     color: white;
-    position: fixed;
     left: 0;
     bottom: 0;
     height: 15%;
     width: 100%;
     font-size:1.2rem;
   }
-#footer .links-container .foot {
+.footer .logo {
+  padding: 30px;
   display: inline-block; 
-  line-height: 70px; 
-  vertical-align: top 
+ 
 }
-#footer .links-container .footer-img{
+.footer  .links{
   display: inline-block; 
 } 
