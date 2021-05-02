@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -8,6 +9,7 @@ from django.conf import settings
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from datetime import datetime
 from app.forms import *
@@ -56,7 +58,6 @@ def contact(request):
             email.attach_alternative(html_content, "text/html")
             email.send()
             messages.success(request, 'Contact form has been submitted.')
-            return HttpResponseRedirect(reverse('app:contact'))
     else:
         contact_form = FeedbackContactForm()
     return render(request, "app/contact.html", {'contact_form': contact_form})
@@ -214,3 +215,17 @@ def upload_member(request):
     else:
         uploadForm = UploadMemberForm()
     return render(request, 'app/member/member_upload.html', {'form': uploadForm})
+
+@csrf_exempt
+def subscribe_email(request):
+    if request.method == "POST" and request.is_ajax():
+        subscribeform = MailListForm(request.POST)
+        if subscribeform.is_valid():
+            subscribeform.save()
+            messages.success(request, 'Email has succesfully been subscribed')
+        return render(request, 'app/partials/subscribe.html', {'form': subscribeform})
+    elif request.method == "GET" and request.is_ajax():
+        subscribeform = MailListForm()
+        return render(request, 'app/partials/subscribe.html', {'form': subscribeform})
+
+    
