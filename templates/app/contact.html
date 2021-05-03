@@ -13,17 +13,17 @@
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
 <section id="contact" class="full-background">
-    <div data-aos="fade-up" class="container mt-5 mb-5">
+    <div data-aos="fade-up" class="container my-5">
         <div class="row text-center">
             <h1>Contact</h1>
             <h5 class="text-muted">We want to hear from you!</h5>
         </div>
         {% if messages %}
-        <ul class="messages">
             {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                {% endfor %}
-        </ul>
+            <div class="alert alert-success text-center" role="alert">
+                <strong{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</strong>
+            </div>
+            {% endfor %}
         {% else %}
         {% if contact_form.errors %}
             {% for field in contact_form %}
@@ -40,28 +40,28 @@
             {% endfor %}
         {% endif %}
         <form method="POST" class="row justify-content-center">
-            <div class="col-10 col-md-8 col-lg-6">
+            <div class="col-10 col col-md-10 col-lg-6">
                 {% csrf_token %}
-                <div class="row my-2">
+                <div class="row py-2">
                     <div class="col">
                         <label for="{{contact_form.full_name.id_for_label}}" class="form-label">Full name</label>
                         <input type="text" class="form-control {% if contact_form.full_name.errors %}is-invalid{% endif %}" name="{{contact_form.full_name.name}}" placeholder="Full name" maxlength="200" {% if contact_form.full_name.value %}value="{{contact_form.full_name.value}}"{% endif %} required="" id="{{contact_form.full_name.id_for_label}}">
                     </div>
                 </div>
-                <div class="row my-2">
+                <div class="row py-2">
                     <div class="col">
                         <label for="{{contact_form.email.id_for_label}}" class="form-label">Email</label>
                         <input type="email" class="form-control {% if contact_form.email.errors %}is-invalid{% endif %}" name="{{contact_form.email.name}}" placeholder="Email" maxlength="200" {% if contact_form.email.value %}value="{{contact_form.email.value}}"{%endif %} required="" id="{{contact_form.email.id_for_label}}">
                         <div for="{{contact_form.email.id_for_label}}" class="form-text">We will never share your email.</div>
                     </div>
                 </div>
-                <div class="row my-2">
+                <div class="row py-2">
                     <div class="col">
                         <label for="{{contact_form.subject.id_for_label}}" class="form-label">Subject</label>
                         <input type="text" class="form-control {% if contact_form.subject.errors %}is-invalid{% endif %}" name="{{contact_form.subject.name}}" placeholder="Subject" maxlength="200" {% if contact_form.subject.value %}value="{{contact_form.subject.value}}"{% endif %} required="" id="{{contact_form.subject.id_for_label}}">
                     </div>
                 </div>
-                <div class="row my-2">
+                <div class="row py-2">
                     <div class="col">
                         <label for="{{contact_form.message.id_for_label}}" class="form-label">Message</label>
                         <div class="widget">
@@ -70,12 +70,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
+                <div class="d-grid gap-2 pt-4 col-6 mx-auto">
                     <input type="submit" class="btn btn-outline-dark" value="Submit">
                 </div>
             </div>
         </form>
         {% endif %}
+        <hr class="my-5">
+        <div class="location">
+            <div class="row g-0 justify-content-center ">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-10">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12091.707144627779!2d-74.1665357!3d40.7416365!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xeac1906558bb4032!2sFraternal%20Order%20of%20Police!5e0!3m2!1sen!2sus!4v1619478656504!5m2!1sen!2sus" height= "350" style="border:0; width: 100%;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-10">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+        </div> 
     </div>
 </section>
 {% endblock %}

@@ -1,4 +1,6 @@
+
 .footer{
+
     text-align: left;
     background-color:#343434;
     color: white;
@@ -14,5 +16,6 @@
  
 }
 .footer  .links{
+
   display: inline-block; 
 } 

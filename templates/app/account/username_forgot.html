@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Login{% endblock %}
+{% block title %}Forgot Username{% endblock %}
 {% block vendor %}
 {% endblock %}
 
@@ -12,14 +12,13 @@
     <div class="container mt-5 mb-5">
         <div data-aos="fade-down" class="row text-center">
             <div>
-                <h1>Forget Your Username?</h1>
+                <h1>Forgot Username</h1>
                 <p>Enter your email address associated with your account and we'll send you a reminder.</p>
+
             </div>
         </div>
-        <br>
-        
-        <form method="POST" class="row justify-content-center">
 
+        <form method="POST" class="row justify-content-center">
             <div class="col-8 col-md-6 col-lg-5">
                 {% csrf_token %}
                 {% if form.errors %}
@@ -35,26 +34,32 @@
                             <strong>{{ error|escape }}</strong>
                         </div>
                     {% endfor %}
-                {% endif %}
-                {{form.as_p}}
+            {% endif %}
+
+            <div class="row">
+                <div class="row">
+                    <div class="col">
+                        <label for="{{user_form.email.id_for_label}}" class="form-label">Email</label>
+                        <div class = "wrapper shadow">
+                        <input type="email" class="form-control" name="{{user_form.email.name}}" placeholder="user@domain.com" maxlength="254" {% if user_form.email.value %}value="{{user_form.email.value}}"{% endif %} required="" id="{{user_form.email.id_for_label}}">
+                        <div for="{{user_form.email.id_for_label}}" class="form-text">{{user_form.email.help_text}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class = text-muted fw-light>
+                    <p>Information for username recovery will be sent.</p>
+                </div>
+            </div>
             <div data-aos = "fade-up">     
                 <div class="row mt-3 mb-3">
-
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <br>
                         <input type="submit" class="btn btn-outline-dark" value="Send Reset Link">
                     </div>
-                        <div class="landscape">
-                            <img src="https://i.ibb.co/jZ5Lk9s/121690117-101315115112166-6357448308478966586-n.jpg" width = 500> 
-                        </div>
                 </div>
              
 
             </div>    
         </div>
-    </div>
-  
-    </div>
     </div>
     </form>
     </div>

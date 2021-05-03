@@ -28,6 +28,9 @@ urlpatterns = [
     # Donate Page
     path('donate', TemplateView.as_view(template_name='app/donate.html'), name="donate"),
 
+    # Events Page
+    path('events', views.events, name="events"),
+
     # Members Area Pages
     path('member', views.member, name="member"),
     path('member/forms', views.forms, name="forms"),
