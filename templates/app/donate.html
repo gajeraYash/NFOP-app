@@ -10,10 +10,9 @@
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
 
-<section id="donate" class="full-background" >
-    <div class="container" data-aos="fade-up" >
+<section id="donate" class="full-background">
+    <div class="container" data-aos="fade-up">
         <div class="donate-info justify-content-center align-items-center">
-
             <div class="card">
                 <div class="row g-0">
                     <div class="col-md-5 col-lg-4">
@@ -21,80 +20,26 @@
                     </div>
                     <div class="col-md-7 col-lg-8">
                         <div class="card-body">
-                            <div class="lead text-center fs-2">
-                                <p class="fs-2">Your donations to our lodge will enable us to continue
-                                    to serve the officers and the community in which we serve</p>
-                                Any amount is greately appreciated
-                            </div>
-                            <!-- <p class="card-text text-center fs-3 lh-lg">
+                            <p class="card-text lead text-center fs-3 lh-lg">
                                 Your donations to our lodge will enable us to continue
-                                to serve the officers and the community in which we serve
+                                to serve the officers and the community in which we serve.
+                                <br>
+                                Any amount is greately appreciated!
                             </p>
-                            <p class="card-text text-center fs-3 lh-lg">
-                                Any amount is greately appreciated
-                            </p> -->
-                            <p class="text-center text-muted fs-5"> Please donate using PayPal
-                            <p class="text-center fs-3">
-                                <a href="https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2"
-                                    title="PayPal"
-                                    onclick="javascript:window.open('https://www.paypal.com/c2/webapps/mpp/paypal-popup?locale.x=en_C2',
-                     'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes,resizable=yes, width=1060, height=700'); return false;">
-                                    <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/34_Yellow_PayPal_Pill_Button.png"
-                                        alt="PayPal" /></a>
-                            </p>
-                            </p>
+                            <p class="text-center text-muted fs-5"> Please donate using PayPal.</p>
+                            <div class="donate-btn text-center">
+                                <form action="https://www.paypal.com/donate" method="post" target="_top">
+                                    <input type="hidden" name="business" value="8FNYJS2C7XTD6" />
+                                    <input type="hidden" name="currency_code" value="USD" />
+                                    <input type="image" src="https://i.ibb.co/T4byZmw/paypal-donate-button.png" height="80" border="0" target="_blank" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                                </form>
+                            </div>     
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-5 col-lg-4">
-            <img src="{% static 'assets/carousel/home/slide3.jpg' %}" class="img-fluid donate-img" alt="">
-        </div>
-    </div>
-    <!---------------------------------------------->
-    <div class="container">
-       <div class="carousel slide carousel-fade" data-bs-ride="carousel">
-           <div class="carousel-inner">
 
-               <div class="carousel-item active img-fluid">
-                <img src="{% static 'assets/misc/ewrpd.jpg' %}" class="d-block w-50 img-thumbnail 
-                img-responsive center-block mx-auto" alt="">
-               </div>
-
-               <div class="carousel-item">
-                <img src="{% static 'assets/misc/ewrpd2.jpg' %}" class="d-block w-50 img-thumbnail 
-                img-responsive center-block mx-auto" alt="">
-               </div>
-
-               <div class="carousel-item">
-                <img src="{% static 'assets/misc/ewrpd3.jpg' %}" class="d-block w-50 img-thumbnail 
-                img-responsive center-block mx-auto" alt="">
-               </div>
-
-               <div class="carousel-item">
-                <img src="{% static 'assets/misc/ewrpd5.jpg' %}" class="d-block w-50 img-thumbnail 
-                img-responsive center-block mx-auto" alt="">
-               </div>
-
-               <div class="carousel-item">
-                <img src="{% static 'assets/misc/ewrpd6.jpg' %}" class="d-block w-50 img-thumbnail 
-                img-responsive center-block mx-auto" alt="">
-               </div>
-
-               <div class="carousel-item">
-                <img src="{% static 'assets/misc/ewrpd7.jpg' %}" class="d-block w-50 img-thumbnail 
-                img-responsive center-block mx-auto" alt="">
-               </div>
-
-               <div class="carousel-item">
-                <img src="{% static 'assets/misc/ewrpd8.jpg' %}" class="d-block w-50 img-thumbnail 
-                img-responsive center-block mx-auto" alt="">
-               </div>
-
-
-           </div>
-       </div> 
     </div>
 </section>
 
