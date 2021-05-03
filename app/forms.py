@@ -71,9 +71,9 @@ class MailListForm(forms.ModelForm):
     
     def clean(self):
         email = self.cleaned_data.get('email')
-
         if MailList.objects.filter(email=email.lower()).exists():
             raise ValidationError("Email already subscribed for mailing list.")
+        return self.cleaned_data
 
 class FeedbackContactForm(forms.ModelForm):
     class Meta:

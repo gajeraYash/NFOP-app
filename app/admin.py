@@ -26,7 +26,7 @@ class UserStatusAdmin(admin.ModelAdmin):
     get_user_lastname.short_description = 'Last name'
 
 class UserProfileAdmin(admin.ModelAdmin):
-    search_fields = ['user__first_name', 'user__last_name', 'user__username', 'phone_number' 'address_1', 'city', 'state', 'zip_code']
+    search_fields = ['user__first_name', 'user__last_name', 'user__username', 'phone_number', 'address_1', 'city', 'state', 'zip_code']
     list_filter = ['user__username','user__first_name', 'user__last_name', 'city','zip_code']
     list_display = ['user', 'get_user_firstname', 'get_user_lastname', 'address_1', 'address_2', 'city','state','zip_code','phone_number']
 

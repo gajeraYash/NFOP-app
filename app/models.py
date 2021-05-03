@@ -77,7 +77,7 @@ class UserStatus(models.Model):
 class MailList(models.Model):
     first_name = models.CharField(max_length=35)
     last_name = models.CharField(max_length=35)
-    email = models.CharField(max_length=254)
+    email = models.EmailField(max_length=254)
 
     def save(self, *args, **kwargs):
         self.email = self.email.lower()
