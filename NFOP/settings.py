@@ -33,8 +33,8 @@ DEBUG = config('DEBUG', cast=bool)
 # SECURITY WARNING: this variable is for deployment only!
 PRODUCTION = config('PRODUCTION', cast=bool)
 
-if DEBUG and PRODUCTION:
-    ALLOWED_HOSTS = ['www.newarkfop12.com']
+if not DEBUG and PRODUCTION:
+    ALLOWED_HOSTS = ['www.newarkfop12.com','nfop-app.herokuapp.com']
 else:
     ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
