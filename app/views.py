@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -8,6 +9,7 @@ from django.conf import settings
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from datetime import datetime
 from app.forms import *
@@ -21,12 +23,16 @@ from django.utils.encoding import force_bytes
 def index(request):
     return render(request,"app/index.html", {'numIMG' : range(1,11)})
 
+def events(request):
+    return render(request,"app/events.html")
+
 def contact(request):
     if request.method == 'POST':
         contact_form = FeedbackContactForm(request.POST)
         if contact_form.is_valid():
             contact_form.save()
             admins = [reciever for reciever in (User.objects.filter(groups__name='contactRequest').values_list('email', flat=True))]
+            print(admins)
             full_name = request.POST.get('full_name', 'NULL')
             email = request.POST.get('email', 'NULL')
             subject = request.POST.get('subject', 'NULL')
@@ -45,13 +51,13 @@ def contact(request):
             email = EmailMultiAlternatives(
                 email_subject,
                 text_content,
-                settings.EMAIL_HOST_USER,
-                admins
+                'NewarkFOP12 <{0}>'.format(settings.EMAIL_HOST_USER),
+                admins,
+                reply_to=[email]
             )
             email.attach_alternative(html_content, "text/html")
             email.send()
             messages.success(request, 'Contact form has been submitted.')
-            return HttpResponseRedirect(reverse('app:contact'))
     else:
         contact_form = FeedbackContactForm()
     return render(request, "app/contact.html", {'contact_form': contact_form})
@@ -113,7 +119,7 @@ def password_forgot(request):
             associated_users = User.objects.filter(username=data)
             if associated_users.exists():
                 for user in associated_users:
-                    subject = "Reset Password - NewarkFOP"
+                    subject = "Reset Password - NewarkFOP12"
                     email_template_name = "email/reset_password.html"
                     textemail_template_name = "email/reset_password.txt"
                     context = {
@@ -129,7 +135,7 @@ def password_forgot(request):
                     template_email = EmailMultiAlternatives(
                         subject,
                         text_content,
-                        settings.EMAIL_HOST_USER,
+                        'Do Not Reply <{0}>'.format(settings.EMAIL_HOST_USER),
                         [user.email]
                     )
                     template_email.attach_alternative(html_content, "text/html")
@@ -147,7 +153,7 @@ def username_forgot(request):
             data = form.cleaned_data['email'].lower()
             user = User.objects.filter(email=data)
             if user.exists():
-                subject = "Forgot Username - NewarkFOP"
+                subject = "Forgot Username - NewarkFOP12"
                 email_template_name = "email/forgot_username.html"
                 textemail_template_name = "email/forgot_username.txt"
                 context = {
@@ -159,7 +165,7 @@ def username_forgot(request):
                 template_email = EmailMultiAlternatives(
                     subject,
                     text_content,
-                    settings.EMAIL_HOST_USER,
+                    'Do Not Reply <{0}>'.format(settings.EMAIL_HOST_USER),
                     [user[0].email]
                 )
                 template_email.attach_alternative(html_content, "text/html")
@@ -209,3 +215,17 @@ def upload_member(request):
     else:
         uploadForm = UploadMemberForm()
     return render(request, 'app/member/member_upload.html', {'form': uploadForm})
+
+@csrf_exempt
+def subscribe_email(request):
+    if request.method == "POST" and request.is_ajax():
+        subscribeform = MailListForm(request.POST)
+        if subscribeform.is_valid():
+            subscribeform.save()
+            messages.success(request, 'Email has succesfully been subscribed')
+        return render(request, 'app/partials/subscribe.html', {'form': subscribeform})
+    elif request.method == "GET" and request.is_ajax():
+        subscribeform = MailListForm()
+        return render(request, 'app/partials/subscribe.html', {'form': subscribeform})
+
+    

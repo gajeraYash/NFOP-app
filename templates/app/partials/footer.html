@@ -1,11 +1,14 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/app/partials/footer.css' %}" type="text/css" media="screen">
-<nav class="footer full-background text-white" style="background-color:#343434;">
+<nav class="footer ">
     
-    <div id="links" class="container ">
-          <img src="{%static 'assets/logos/logo.png' %}" class="footer-img" width="90px" height="90px">
+    <div class="container ">
+        <div class="logo justify-content-left">
+          <img src="{%static 'assets/logos/logo.png' %}" width="120px" height="120px">
+        </div>
+        <div class="links">
         <!--footer Page Links - News & Updates, Contact-->  
-          <div class="foot row justify-content-center siteFooterBar ">  
+          <div class="row justify-content-right  ">  
                   <div class="col-md-3 fs-5">
                     <p class="line fs-5">Page Links</p>
                     <ul class="list-unstyled fs-5"> 
@@ -36,9 +39,8 @@
                   &copy Newark FOP
                   </div>     
           </div>
-      
+        </div>
     </div>  
-    
 </nav>
 
 
