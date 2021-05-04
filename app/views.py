@@ -227,5 +227,21 @@ def subscribe_email(request):
     elif request.method == "GET" and request.is_ajax():
         subscribeform = MailListForm()
         return render(request, 'app/partials/subscribe.html', {'form': subscribeform})
+@login_required
+def editinfo(request):
+    if request.method == 'POST':
+        user_info_form = EditUserInfoForm(request.POST, instance= request.user)
+        user_profile_form = EditUserProfileForm(request.POST, instance= request.user.userprofile)
+        if (user_info_form.is_valid() and user_profile_form.is_valid()):
+            user_info_form.save()
+            user_profile_form.save()
+            return HttpResponseRedirect(reverse("app:member"))
+        else:
+            print("error while editing profile")
+    else:
+        user_info_form = EditUserInfoForm(instance= request.user)
+        user_profile_form = EditUserProfileForm(instance= request.user.userprofile)
+    return render(request, 'app/member/edit_member.html', {"profile_info": user_profile_form, "user_info": user_info_form})
+
 
     

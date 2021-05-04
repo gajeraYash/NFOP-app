@@ -36,6 +36,7 @@ urlpatterns = [
 
     # Members Area Pages
     path('member', views.member, name="member"),
+    path('member/edit', views.editinfo, name="edit_member"),
     path('member/forms', views.forms, name="forms"),
     path('member/upload/member', views.upload_member, name="upload_member"),
     path('member/upload/police', views.upload_police, name="upload_police"),
