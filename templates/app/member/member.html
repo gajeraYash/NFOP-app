@@ -9,59 +9,92 @@
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
 <section id="home" class="full-background">
-  <div class="container">
-    <div class="row text-center">
-      <h4>User Info</h4>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>Username:</strong></div>
-      <div class="col-md-6">{{user.username}}</div>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>First name:</strong></div>
-      <div class="col-md-6">{{user.first_name}}</div>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>Last name:</strong></div>
-      <div class="col-md-6">{{user.last_name}}</div>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>Email:</strong></div>
-      <div class="col-md-6">{{user.email}}</div>
-    </div>
-    <div class="row text-center">
-      <h4>Profile Info</h4>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>Address 1:</strong></div>
-      <div class="col-md-6">{{user.userprofile.address_1}}</div>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>Address 2:</strong></div>
-      <div class="col-md-6">{{user.userprofile.address_2}}</div>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>City:</strong></div>
-      <div class="col-md-6">{{user.userprofile.city}}</div>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>State:</strong></div>
-      <div class="col-md-6">{{user.userprofile.state}}</div>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>Zip code:</strong></div>
-      <div class="col-md-6">{{user.userprofile.zip_code}}</div>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>Phone number:</strong></div>
-      <div class="col-md-6">{{user.userprofile.phone_number}}</div>
-    </div>
-    <div class="row text-center">
-      <h4>User Status Info</h4>
-    </div>
-    <div class="row g-1 justify-content-center">
-      <div class="col-md-3 text-end"><strong>Member Status:</strong></div>
-      <div class="col-md-6">{{user.userstatus.get_status_display}}</div>
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-8 col-lg-6">
+        <div class="row text-center">
+          <h4 class="pt-3 display-6">User</h4>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="username_id" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username_read" value="{{user.username}}" id="username_id" readonly >
+          </div>
+        </div>
+        <div class="row g-2 pt-1">
+          <div class="col-md-6">
+            <label for="first_name_id" class="form-label">First name</label>
+            <input type="text" class="form-control" name="first_name_read" value="{{user.first_name}}" id="first_name_id" readonly >
+          </div>
+          <div class="col-md-6">
+            <label for="last_name_id" class="form-label">Last name</label>
+            <input type="text" class="form-control" name="last_name_read" value="{{user.last_name}}" id="last_name_id" readonly >
+          </div>
+        </div>
+        <div class="row pt-1">
+          <div class="col">
+            <label for="email_id" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email_read" value="{{user.email}}" id="email_id" readonly >
+          </div>
+        </div>
+        <div class="row text-center">
+          <h4 class="pt-3 display-6">Profile</h4>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="address_1_id" class="form-label">Address</label>
+            <input type="text" class="form-control" name="address_1_read" value="{{user.userprofile.address_1}}" id="address_1_id" readonly >
+          </div>
+        </div>
+        <div class="row pt-1">
+          <div class="col">
+            <label for="address_2_id" class="form-label">Address 2</label>
+            <input type="text" class="form-control" name="address_2_read" value="{{user.userprofile.address_2}}" id="address_2_id" readonly >
+          </div>
+        </div>
+        <div class="row pt-1 g-2">
+          <div class="col-md-5">
+            <label for="city_id" class="form-label">City</label>
+            <input type="text" class="form-control" name="city_read" value="{{user.userprofile.city}}" id="city_id" readonly >
+          </div>
+          <div class="col-md-3">
+            <label for="state_id" class="form-label">State</label>
+            <input type="text" class="form-control" name="state_read" value="{{user.userprofile.state}}" id="state_id" readonly >
+          </div>
+          <div class="col-md-4">
+            <label for="zip_code_id" class="form-label">Zip code</label>
+            <input type="text" class="form-control" name="zip_code_read" value="{{user.userprofile.zip_code}}" id="zip_code_id" readonly >
+          </div>
+        </div>
+        <div class="row pt-1">
+          <div class="col">
+            <label for="phone_number_id" class="form-label">Phone number</label>
+            <input type="text" class="form-control" name="phone_number_read" value="{{user.userprofile.phone_number}}" id="phone_number_id" readonly >
+          </div>
+        </div>
+        <div class="row text-center">
+          <h4 class="pt-3 display-6">Status</h4>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="userstatus_id" class="form-label">Member status</label>
+            <input type="text" class="form-control" name="userstatus_read" value="{{user.userstatus.get_status_display}}"
+              readonly id="userstatus_id">
+          </div>
+        </div>
+        <div class="row g-4 py-4 mt-3">
+          <div class="col-md-6">
+            <div class="d-grid mx-auto">
+              <a href="{% url 'app:edit_member' %}" class="btn btn-outline-dark">Edit Info</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-grid mx-auto">
+              <a href="#" class="btn btn-outline-dark">Change Password</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

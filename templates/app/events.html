@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}events{% endblock %}
+{% block title %}Events and Calendar{% endblock %}
 {% block vendor %}
 <link rel="stylesheet" href="{% static 'css/app/events.css' %}" type="text/css" media="screen">
-
+<script type="text/javascript" src="{% static 'js/app/partials/banner.js' %}"></script>
 {% endblock %}
 {% block content %}
 <!-- Top-Banner -->
@@ -11,34 +11,17 @@
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
 <section id="events" class="full-background">
-  <div class="container">
-  <div class="welcome-wrapper">
-    <div class="welcome-info text-center" style="padding-top: 40px;padding-bottom: 40px;">
-      <h2 class="title text-primary">Events and Calendar</h2>
+  <div class="container pb-4 mb-4">
+    <div class="welcome-wrapper">
+      <div class="welcome-info text-center" style="padding-top: 40px;padding-bottom: 40px;">
+        <h2 class="pt-4 pb-2 display-5">Events and Calendar</h2>
+      </div>
+    </div>
+    <div class=" container px-md-2 ratio ratio-16x9" data-aos="fade-up">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=ZXdyZm9wMTJAZ21haWwuY29t&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%230B8043"
+        style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
   </div>
-
-   <!--<<div class="container " data-aos="fade-up">
-   p>it doesnt load images </p>
-    <img src="{% static 'assets/ewrpdpics/ewrpd.jpeg' %}" alt="">
-    <img src="{% static 'assets/misc/ru-cs logo.png' %}" style="height:80px;" alt="">
-    <p>logo loads</p>
-  </div>-->
-  
-    <div class=" container px-md-2 ratio ratio-16x9" data-aos="fade-up">
-      <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=ZXdyZm9wMTJAZ21haWwuY29t&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%230B8043" 
-      style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>  
-    </div>
-    <br><br>
-
-    <div class="events">
-
-    </div>
-    
-    <div>
-      <img src="{% static 'assets/misc/ewrpd.jpg' %}">
-    </div>
-    
 </section>
 {% endblock %}
-
