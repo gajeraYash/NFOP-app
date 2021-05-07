@@ -1,21 +1,3 @@
-
-.footer{
-
-    text-align: left;
-    background-color:#343434;
+#footer {
     color: white;
-    left: 0;
-    bottom: 0;
-    height: 15%;
-    width: 100%;
-    font-size:1.2rem;
   }
-.footer .logo {
-  padding: 30px;
-  display: inline-block; 
- 
-}
-.footer  .links{
-
-  display: inline-block; 
-} 

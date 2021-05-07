@@ -122,13 +122,19 @@ def password_forgot(request):
                     subject = "Reset Password - NewarkFOP12"
                     email_template_name = "email/reset_password.html"
                     textemail_template_name = "email/reset_password.txt"
+                    if settings.DEBUG:
+                        domain = '127.0.0.1:8000'
+                        protcolSSL = 'http'
+                    else:
+                        domain = 'www.newarkfop12.com'
+                        protcolSSL = 'https'
                     context = {
-                        'domain':'127.0.0.1:8000',
+                        'domain': domain,
                         'title': 'Newark Fraternal Order of Police',
                         "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                         "user": user,
                         'token': default_token_generator.make_token(user),
-                        'protocol': 'http',
+                        'protocol': protcolSSL,
                     }
                     html_content = render_to_string(email_template_name, context)
                     text_content = get_template(textemail_template_name).render(context)
@@ -144,7 +150,7 @@ def password_forgot(request):
     else:
         form = ForgotPasswordForm()
     
-    return render(request, 'app/password/password_reset.html', {'form': form})
+    return render(request, 'app/password/password_forgot.html', {'form': form})
 
 def username_forgot(request):
     if request.method == 'POST':
@@ -170,7 +176,7 @@ def username_forgot(request):
                 )
                 template_email.attach_alternative(html_content, "text/html")
                 template_email.send()
-        return HttpResponseRedirect(reverse('app:forgot_password_done'))
+        return HttpResponseRedirect(reverse('app:forgot_username_done'))
     else:
         form = ForgotUsernameForm()
     
@@ -227,5 +233,21 @@ def subscribe_email(request):
     elif request.method == "GET" and request.is_ajax():
         subscribeform = MailListForm()
         return render(request, 'app/partials/subscribe.html', {'form': subscribeform})
+@login_required
+def editinfo(request):
+    if request.method == 'POST':
+        user_info_form = EditUserInfoForm(request.POST, instance= request.user)
+        user_profile_form = EditUserProfileForm(request.POST, instance= request.user.userprofile)
+        if (user_info_form.is_valid() and user_profile_form.is_valid()):
+            user_info_form.save()
+            user_profile_form.save()
+            return HttpResponseRedirect(reverse("app:member"))
+        else:
+            print("error while editing profile")
+    else:
+        user_info_form = EditUserInfoForm(instance= request.user)
+        user_profile_form = EditUserProfileForm(instance= request.user.userprofile)
+    return render(request, 'app/member/edit_member.html', {"profile_info": user_profile_form, "user_info": user_info_form})
+
 
     

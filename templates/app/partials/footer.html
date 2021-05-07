@@ -1,48 +1,48 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/app/partials/footer.css' %}" type="text/css" media="screen">
-<nav class="footer ">
-    
-    <div class="container ">
-        <div class="logo justify-content-left">
-          <img src="{%static 'assets/logos/logo.png' %}" width="120px" height="120px">
-        </div>
-        <div class="links">
-        <!--footer Page Links - News & Updates, Contact-->  
-          <div class="row justify-content-right  ">  
-                  <div class="col-md-3 fs-5">
-                    <p class="line fs-5">Page Links</p>
-                    <ul class="list-unstyled fs-5"> 
-                        <li><a href="{% url 'app:index' %}" class="ho text-decoration-none">Home</a></li>
-                        <li><a href="{% url 'app:about' %}" class="ho text-decoration-none">About</a></li>
-                        <li><a href="{% url 'app:contact' %}" class="ho text-decoration-none">Contact</a></li>
-                        <li><a href="{% url 'app:donate' %}" class="ho text-decoration-none">Donate</a></li>
-                        <li><a href="{% url 'app:signup' %}" class="ho text-decoration-none">Sign up</a></li>
-                        <li><a href="{% url 'app:login' %}" class="ho text-decoration-none">Login</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-md-3 fs-5">
-                    <p class="line">News & Updates </p>
-                    <ul class="list-unstyled fs-5">
-                        <li><a href="" class="ho text-decoration-none">Newark FOP News</a></li>
-                        <li><a href="http://www.nj.com" target="_blank" class="ho text-decoration-none">NJ News</a></li>
-                        <li><a href="" class="ho text-decoration-none">Calendar</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-md-3 fs-5">
-                    <p class="line">Contact Us </p>
-                    <p>ADDRESS:<br> 51 Rector St,<br> Newark, NJ 07102</p>
-                    <p>PHONE: <br>(973)642-0390 </p>
-                    <p>FAX: <br>(973)642-6378 </p>
-                    <p>EMAIL:</p>
-                  </div>
-                  <div >
-                  &copy Newark FOP
-                  </div>     
+<nav id="footer" class="pt-5 bg-dark">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-3 col-md-4 col-4">
+        <h5>Navigation</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'app:index' %}" class="text-decoration-none text-decoration-none">Home</a></li>
+          <li><a href="{% url 'app:about' %}" class="text-decoration-none fs-6">About</a></li>
+          <li><a href="{% url 'app:contact' %}" class="text-decoration-none fs-6">Contact</a></li>
+          <li><a href="{% url 'app:donate' %}" class="text-decoration-none fs-6">Donate</a></li>
+          <li><a href="{% url 'app:events' %}" class="text-decoration-none fs-6">Donate</a></li>
+          <li><a href="{% url 'app:signup' %}" class="text-decoration-none fs-6">Sign up</a></li>
+          <li><a href="{% url 'app:login' %}" class="text-decoration-none fs-6">Login</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4 col-4">
+        <h5>Updates</h5>
+        <ul class="list-unstyled">
+          <li><a href="https://www.facebook.com/groups/138607976161088/" class="text-decoration-none fs-6">Newark FOP News</a></li>
+          <li><a href="http://www.nj.com" target="_blank" class="text-decoration-none fs-6">NJ News</a></li>
+          <li><a href="{% url 'app:events' %}" class="text-decoration-none fs-6">Calendar</a></li>
+          <li><a href="https://goo.gl/maps/9pk6bNBeRW5Z8uKm9" class="text-decoration-none fs-6">Map</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4 col-4">
+        <h5>Contact us</h5>
+        <p class="fs-6">Address:<br>51 Rector St,<br> Newark, NJ 07102</p>
+        <p class="fs-6">Phone:<br>(973)642-0390 </p>
+        <p class="fs-6">Fax: <br>(973)642-6378 </p>
+        <p class="fs-6">Email:<br>nwrkfop@aol.com</p>
+      </div>
+    </div>
+    <hr>
+    <div class="footer-info text-center pb-3">
+      <div class="row align-middle g-0">
+        <div class="col">
+          <img src="{% static 'assets/logos/logo.png' %}" class="d-inline" style="height:50px;">
+          <div class="d-inline text-muted">&copy;<script>document.write(new Date().getFullYear())</script>, NewarkFOP12
           </div>
+          <a href="https://github.com/gajeraYash/NFOP-app">
+            <img src="{% static 'assets/logos/ru-cs logo.png' %}" class="d-inline" style="height:55px;" alt="">
+          </a>
         </div>
-    </div>  
+      </div>
+    </div>
+  </div>
 </nav>
-
-
-
-   
