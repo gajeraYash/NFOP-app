@@ -34,7 +34,7 @@ DEBUG = config('DEBUG', cast=bool)
 PRODUCTION = config('PRODUCTION', cast=bool)
 
 if not DEBUG and PRODUCTION:
-    ALLOWED_HOSTS = ['www.newarkfop12.com','nfop-app.herokuapp.com']
+    ALLOWED_HOSTS = ['www.newarkfop12.com']
 else:
     ALLOWED_HOSTS = ['127.0.0.1','localhost']
 

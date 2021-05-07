@@ -3,6 +3,7 @@
 {% block title %}Donate{% endblock %}
 {% block vendor %}
 <link rel="stylesheet" href="{% static 'css/app/donate.css' %}" type="text/css" media="screen">
+<script type="text/javascript" src="{% static 'js/app/partials/banner.js' %}"></script>
 {% endblock %}
 {% block content %}
 <!-- Top-Banner -->
@@ -10,8 +11,8 @@
 <!-- Navbar -->
 {% include "app/partials/navbar.html" with user=user %}
 
-<section id="donate" class="full-background">
-    <div class="container" data-aos="fade-up">
+<section id="donate" >
+    <div class="container">
         <div class="donate-info justify-content-center align-items-center">
             <div class="card">
                 <div class="row g-0">
@@ -27,21 +28,20 @@
                                 Any amount is greately appreciated!
                             </p>
                             <p class="text-center text-muted fs-5"> Please donate using PayPal.</p>
+                            
                             <div class="donate-btn text-center">
                                 <form action="https://www.paypal.com/donate" method="post" target="_top">
-                                    <input type="hidden" name="business" value="8FNYJS2C7XTD6" />
+                                    <input type="hidden" name="business" value="lajara239@aol.com" />
+                                    <input type="hidden" name="item_name" value="NewarkFOP12 Donation" />
                                     <input type="hidden" name="currency_code" value="USD" />
-                                    <input type="image" src="https://i.ibb.co/T4byZmw/paypal-donate-button.png" height="80" border="0" target="_blank" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                                </form>
-                            </div>     
+                                    <input type="image" src="https://i.ibb.co/T4byZmw/paypal-donate-button.png" border="0" height="80" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                                    </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
-
-
 {% endblock %}

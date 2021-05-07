@@ -36,6 +36,7 @@ urlpatterns = [
 
     # Members Area Pages
     path('member', views.member, name="member"),
+    path('member/edit', views.editinfo, name="edit_member"),
     path('member/forms', views.forms, name="forms"),
     path('member/upload/member', views.upload_member, name="upload_member"),
     path('member/upload/police', views.upload_police, name="upload_police"),
@@ -45,7 +46,8 @@ urlpatterns = [
     path('password/forgot/done', auth_views.PasswordResetDoneView.as_view(template_name='app/password/password_forgot_done.html'), name="forgot_password_done"),
     path('password/reset/<uidb64>/<token>',auth_views.PasswordResetConfirmView.as_view(template_name='app/password/password_reset.html', success_url=reverse_lazy('app:reset_password_done')), name="reset_password"),
     path('password/reset/done', auth_views.PasswordResetCompleteView.as_view(template_name='app/password/password_reset_done.html',), name="reset_password_done"),
-    path('username/forgot', views.username_forgot, name="forgot_username")
+    path('username/forgot', views.username_forgot, name="forgot_username"),
+    path('username/forgot/done', TemplateView.as_view(template_name='app/account/username_forgot_done.html'), name="forgot_username_done")
     
 ]
 

@@ -87,13 +87,34 @@ class ForgotUsernameForm(forms.Form):
     email = EmailLowField(max_length=254, label="Email")
 
 class UploadPoliceForm(forms.ModelForm):
-    
     class Meta:
         model = PoliceUpload
         fields = ('form',)
 
 class UploadMemberForm(forms.ModelForm):
-
     class Meta:
         model = MemberUpload
         fields = ('form','frontDL', 'backDL','carReg',)
+
+class EditUserInfoForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=35, required=True)
+    last_name = forms.CharField(max_length=35, required=True)
+    email = EmailLowField(max_length=254, required=True)
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
+    
+    def clean(self):
+        email = self.cleaned_data.get('email')
+        
+        if self.instance.pk is not None and self.instance.email == email:
+            return self.cleaned_data
+
+        if User.objects.filter(email=email.lower()).exists():
+            raise ValidationError("Email already in use.")
+        return self.cleaned_data
+
+class EditUserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('address_1', 'address_2', 'city', 'state', 'zip_code', 'phone_number')
