@@ -5,7 +5,7 @@ from app.models import *
 from django.urls import reverse
 from django.utils.html import format_html
 
-admin.site.site_header = "NewarkFOP Admin"
+admin.site.site_header = "NewarkFOP12 Admin"
 admin.site.site_title = "Admin Page"
 
 # Modify your admin layout here.
