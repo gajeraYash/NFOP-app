@@ -4,20 +4,18 @@
 {% block vendor %}
 {% endblock %}
 
-{% block content %}     
+{% block content %}
 <!-- Navbar -->
 
-{% include "app/partials/navbar.html" with user=user %} 
-<section id="login" class="full-background">
+{% include "app/partials/navbar.html" with user=user %}
+<section id="login" class="py-5 my-3">
     <div class="container mt-5 mb-5">
         <div data-aos="fade-down" class="row text-center">
             <div>
                 <h1>Forgot Username</h1>
                 <p>Enter your email address associated with your account and we'll send you a reminder.</p>
-
             </div>
         </div>
-
         <form method="POST" class="row justify-content-center">
             <div class="col-8 col-md-6 col-lg-5">
                 {% csrf_token %}
@@ -30,38 +28,25 @@
                         {% endfor %}
                     {% endfor %}
                     {% for error in form.non_field_errors %}
-                        <div class="alert alert-warning" role="alert">
-                            <strong>{{ error|escape }}</strong>
-                        </div>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
                     {% endfor %}
-            {% endif %}
-
-            <div class="row">
+                {% endif %}
                 <div class="row">
                     <div class="col">
-                        <label for="{{user_form.email.id_for_label}}" class="form-label">Email</label>
-                        <div class = "wrapper shadow">
-                        <input type="email" class="form-control" name="{{user_form.email.name}}" placeholder="user@domain.com" maxlength="254" {% if user_form.email.value %}value="{{user_form.email.value}}"{% endif %} required="" id="{{user_form.email.id_for_label}}">
-                        <div for="{{user_form.email.id_for_label}}" class="form-text">{{user_form.email.help_text}}</div>
-                        </div>
+                        <label for="{{form.email.id_for_label}}" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="{{form.email.name}}" placeholder="user@domain.com" maxlength="254" {% if user_form.email.value %}value="{{form.email.value}}" {% endif %} required="" id="{{form.email.id_for_label}}">
+                        <div for="{{form.email.id_for_label}}" class="form-text">Information for username recovery will be sent.</div>
                     </div>
-                </div>
-                <div class = text-muted fw-light>
-                    <p>Information for username recovery will be sent.</p>
                 </div>
             </div>
-            <div data-aos = "fade-up">     
-                <div class="row mt-3 mb-3">
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <input type="submit" class="btn btn-outline-dark" value="Send Reset Link">
-                    </div>
+            <div class="row py-3">
+                <div class="d-grid gap-2 col-3 mx-auto">
+                    <input type="submit" class="btn btn-outline-dark" value="Send Reminder">
                 </div>
-             
-
-            </div>    
-        </div>
-    </div>
-    </form>
+            </div>
+        </form>
     </div>
 </section>
 {% endblock %}
