@@ -34,7 +34,7 @@
 </div>
 
 ## Info
-This project is part of the CS-491 course for CS major at Rutgers University - Newark. 
+This project is part of the CS-491 course for CS major at Rutgers University - Newark. Project was never set to live for due to the sponsor's accountability after the project was to be handed over. 
 
 ## Setup
 Details on how to setup the project.
